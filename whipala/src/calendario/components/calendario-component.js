@@ -79,7 +79,6 @@ const Calendario_Component = () =>{
                 <View style = {styles.pie}>
                     <TouchableOpacity 
                             style = {styles.botonLogin}
-                            onPress={() => navigation.navigate('MenuTabs')}
                         >
                             <Text style = {styles.textoButon}>
                                 Solicitar Nueva Cita
@@ -105,7 +104,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffff',
         width: '95%',
         height: '95%',
-        borderRadius: 40
+        borderRadius: 40,
     },
 
     imageContainer:{

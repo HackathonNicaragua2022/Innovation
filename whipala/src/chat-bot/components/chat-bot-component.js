@@ -119,7 +119,8 @@ const styles = StyleSheet.create({
         width: '95%',
         height: '95%',
         borderRadius: 40,
-        alignItems: 'center'
+        alignItems: 'center',
+        opacity: 0.6,
     },
 
     imageContainer:{

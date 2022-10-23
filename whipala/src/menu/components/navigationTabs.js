@@ -71,7 +71,8 @@ const App = ({navigation}) => {
                 name = "Citas-Medicas" 
                 component = { CitasMedicasStackScreen } 
                 options={{
-                    title: "Citas Medicas",
+                    title: "Notificaciones",
+                    headerShown: false
                 }}  
             />
 
@@ -89,6 +90,7 @@ const App = ({navigation}) => {
                 component = { FarmaciaStackScreen } 
                 options={{
                     title: "Farmacia",
+                    headerShown: false
                 }}  
             />
 
