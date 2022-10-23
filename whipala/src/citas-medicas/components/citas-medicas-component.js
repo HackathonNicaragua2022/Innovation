@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: 'black',
         marginTop: 5,
-        marginLeft: 10
+        marginLeft: 10,
     },
 
     texto1:{

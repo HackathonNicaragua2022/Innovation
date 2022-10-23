@@ -39,13 +39,10 @@ const App = ({navigation}) => {
         })}
         
         tabBarOptions={{
-          activeTintColor: 'tomato',
-          inactiveTintColor: 'gray',
-          
-          activeTintColor: '#97ca3f',
-          activeBackgroundColor: "#10242d",
-          inactiveTintColor: '#2f586e',
-          inactiveBackgroundColor: '#10242d',
+          activeTintColor: '#005202',
+          activeBackgroundColor: "white",
+          inactiveTintColor: '#005202',
+          inactiveBackgroundColor: 'white',
         }}
 
         initialRouteName="Calendario"
@@ -71,8 +68,7 @@ const App = ({navigation}) => {
                 name = "Citas-Medicas" 
                 component = { CitasMedicasStackScreen } 
                 options={{
-                    title: "Notificaciones",
-                    headerShown: false
+                    title: "Citas Medicas",
                 }}  
             />
 
@@ -90,7 +86,6 @@ const App = ({navigation}) => {
                 component = { FarmaciaStackScreen } 
                 options={{
                     title: "Farmacia",
-                    headerShown: false
                 }}  
             />
 
