@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 
     image:{
         width: 350,
-        height:720,
+        height:690,
         resizeMode: 'cover',
         borderColor: 'white',
     },

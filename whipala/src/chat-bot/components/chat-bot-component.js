@@ -6,6 +6,7 @@ import {
     StyleSheet,
     TouchableOpacity,
     Modal,
+    TextInput,
     Image
 } from 'react-native';
 
@@ -86,13 +87,10 @@ const ChatBot_Component = () =>{
                 </View>
 
                 <View style = {styles.pie}>
-                    <View 
-                            style = {styles.botonLogin}
-                        >
-                            <Text style = {styles.textoButon}>
-                                Escribir...
-                            </Text>
-                    </View>
+                    <TextInput
+                        style={styles.input}
+                        placeholder="useless placeholder"
+                    />
 
                     <TouchableOpacity 
                             style = {styles.enviar}
@@ -122,6 +120,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         opacity: 0.6,
     },
+
+    input: {
+        height: 40,
+        margin: 12,
+        borderWidth: 1,
+        padding: 10,
+        backgroundColor: 'white',
+        width: '82%',
+        height: 45,
+        borderRadius: 25,
+        color: 'black',
+        borderColor: 'green',
+        borderWidth: 2
+      },
 
     imageContainer:{
         flexDirection: 'column',
