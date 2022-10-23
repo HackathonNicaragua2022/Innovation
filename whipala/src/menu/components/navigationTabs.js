@@ -55,7 +55,7 @@ const App = ({navigation}) => {
             inactiveTintColor: '#2f586e',
             inactiveBackgroundColor: '#10242d',
         }}*/
-
+ 
         >
 
             <Tab.Screen 
