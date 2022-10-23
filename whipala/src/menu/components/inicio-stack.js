@@ -68,8 +68,8 @@ function App() {
             name="MenuTabs" 
             component={MenuTabs} 
             options = {{
-                headerShown: false
-                }}
+              headerShown: false
+            }}
         />
       </Stack.Navigator>
     </NavigationContainer>

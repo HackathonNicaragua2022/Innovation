@@ -63,6 +63,7 @@ const App = ({navigation}) => {
                 component = { CalendarioStackScreen } 
                 options={{
                     title: "Calendario",
+                    headerShown: false
                 }}  
             />
 

@@ -36,7 +36,7 @@ const LoginUsuario = ({navigation}) =>{
 
                     <TouchableOpacity 
                         style = {styles.botonLogin}
-                        onPress={() => navigation.navigate('MenuTabs                             ')}
+                        onPress={() => navigation.navigate('MenuTabs')}
                     >
                         <Text style = {styles.textoButon}>
                             Correo Electronico
