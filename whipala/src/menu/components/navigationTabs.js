@@ -80,6 +80,7 @@ const App = ({navigation}) => {
                 component = { CharBotStackScreen } 
                 options={{
                     title: "ChatBot",
+                    headerShown: false
                 }}  
             />
 

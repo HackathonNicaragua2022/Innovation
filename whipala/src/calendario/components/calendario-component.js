@@ -50,7 +50,6 @@ const Calendario_Component = () =>{
                         </Text>
                     </View>
 
-
                     <Calendar
                         style = {styles.estilos}
                         onDayPress= {date => {
@@ -58,13 +57,13 @@ const Calendario_Component = () =>{
 
                     }}
                         onMonthChange = {()=>{}}
-                        initialDate={'2022-10-22'}
+                        initialDate={'2022-11-01'}
                         minDate= {'2022-01-01'}
                         maxDate = {'2022-12-31'}
 
                         markingType = {'period'}
                         markedDates={{
-                            '2022-10-22': {startingDay: true, endingDay: true, color: '#bce680'}
+                            '2022-11-01': {startingDay: true, endingDay: true, color: '#bce680'}
                         }}
                     />
 
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
         borderRadius: 15, 
         elevation: 5, 
         margin: 10,
-        marginTop: -10
+        marginTop: -10,
     },
     subContenedor:{
         backgroundColor: '#ffff',
