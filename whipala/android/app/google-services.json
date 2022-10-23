@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "498245974939",
+    "project_id": "whipala-1a4ae",
+    "storage_bucket": "whipala-1a4ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:498245974939:android:e0b73533b31995b3a1bf3e",
+        "android_client_info": {
+          "package_name": "com.whipala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "498245974939-ujg6svpd3991m3toed0c9u40bk4c3jm1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLSpwzI8VvaGyuXyybMr_0ya-w9U7avV4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "498245974939-ujg6svpd3991m3toed0c9u40bk4c3jm1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
