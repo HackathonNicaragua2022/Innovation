@@ -2,24 +2,55 @@ import * as React from "react";
 import {
     View,
     Text,
-    StyleSheet
+    StyleSheet,
+    ImageBackground,
+    Image
 } from 'react-native';
 
 const Ajuste_Component = () =>{
     return(
-        <View>
-            <Text style = {styles.texto}>
-                Mi pantalla de ajustes
-            </Text>
+
+        <View
+            //source = {require('./../../assets/fondo.png')}
+            //style = {styles.imageContainer}
+            style = {styles.glass}
+        > 
+             <Image
+                source={require('./../../assets/setting.png')}
+                style = {styles.image}
+            />
+
         </View>
     );
 }
 
 const styles = StyleSheet.create({
-    texto: {
-        color: 'red',
-        fontSize: 20,
-    }
+    imageContainer:{
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        flex: 1,
+        alignItems:'center',
+        justifyContent: 'center',
+        elevation: 4, 
+    },
+
+    glass:{
+        backgroundColor: 'white',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        flex: 1,
+        alignItems:'center',
+        justifyContent: 'center',
+    },
+
+
+    image:{
+        width: 350,
+        height:720,
+        resizeMode: 'cover',
+        borderColor: 'white',
+    },
+
 })
 
 export default Ajuste_Component;

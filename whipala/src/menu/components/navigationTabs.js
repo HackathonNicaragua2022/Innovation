@@ -21,18 +21,18 @@ const App = ({navigation}) => {
 
             if (route.name === 'Calendario') {
               iconName = focused
-                ? 'apps-outline'
-                : 'apps-outline';
+                ? 'calendar-outline'
+                : 'calendar-outline';
             } else if (route.name === 'Citas-Medicas') {
-              iconName = focused ? 'analytics-outline' : 'analytics-outline';
+              iconName = focused ? 'notifications-outline' : 'notifications-outline';
             } else if (route.name === 'Chat-Bot') {
-              iconName = focused ? 'ios-list-box' : 'ios-list';
+              iconName = focused ? 'chatbubbles-outline' : 'chatbubbles-outline';
             } else if (route.name === 'Farmacia') {
-              iconName = focused ? 'ios-list-box' : 'ios-list';
+              iconName = focused ? 'bandage-outline' : 'bandage-outline';
             } else if (route.name === 'Ajuste') {
-              iconName = focused ? 'home' : 'home';
+              iconName = focused ? 'settings-outline' : 'settings-outline';
             }
-
+//<ion-icon name="calendar-outline"></ion-icon>
             // You can return any component that you like here!!!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
@@ -69,6 +69,7 @@ const App = ({navigation}) => {
                 component = { CitasMedicasStackScreen } 
                 options={{
                     title: "Citas Medicas",
+                    headerShown: false
                 }}  
             />
 
@@ -86,6 +87,7 @@ const App = ({navigation}) => {
                 component = { FarmaciaStackScreen } 
                 options={{
                     title: "Farmacia",
+                    headerShown: false
                 }}  
             />
 
@@ -94,6 +96,7 @@ const App = ({navigation}) => {
                 component = { AjusteStackScreen } 
                 options={{
                     title: "Ajuste",
+                    headerShown: false
                 }}  
         />
         

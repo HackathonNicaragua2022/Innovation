@@ -13,7 +13,7 @@ import Calendar from 'react-native-calendars/src/calendar';
 
 const Calendario_Component = () =>{
 
-    return(
+    return( 
         <ImageBackground
         source = {require('./../../assets/fondo.png')}
         style = {styles.imageContainer}
