@@ -13,17 +13,20 @@ class ListaDolenciasContainer extends Component {
                 {
                     key: 1,
                     enfermedad: 'Anemia',
-                    imagen: require('./../../assets/banner.jpg')
+                    imagen: require('./../../assets/banner.jpg'),
+                    icono: require('./../../assets/enfermedad-autoinmune.png'),
                 },
                 {
                     key: 2,
                     enfermedad: 'Asma',
-                    imagen: require('./../../assets/banner2.jpg')
+                    imagen: require('./../../assets/banner2.jpg'),
+                    icono: require('./../../assets/enfermedad-autoinmune.png'),
                 },
                 {
                     key: 3,
                     enfermedad: 'Anciedad',
-                    imagen: require('./../../assets/banner3.jpg')
+                    imagen: require('./../../assets/banner3.jpg'),
+                    icono: require('./../../assets/enfermedad-autoinmune.png'),
                 },
         ]
             

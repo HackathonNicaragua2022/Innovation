@@ -12,14 +12,6 @@ import {
 
 import LinearGradient from 'react-native-linear-gradient';
 
-const imagenes = [
-  {
-    imagenCargar:  "https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    titulo: 'hebfuybu'
-  }
- 
-
-];
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -29,7 +21,10 @@ const ESPACIO_CONTENEDOR = (width - ANCHO_CONTENEDOR) / 2;
 const ESPACIO = 10;
 const ALTURA_BACKDROP = height * 0.5;
 
-function Backdrop({ scrollX }) {
+function Backdrop({ scrollX , props}) {
+
+    const {data} = props;
+
   return (
     <View
       style={[
@@ -42,7 +37,7 @@ function Backdrop({ scrollX }) {
         StyleSheet.absoluteFillObject,
       ]}
     >
-      {imagenes.map((imagen, title, index) => {
+      {imagenes.map((data, index) => {
         const inputRange = [
           (index - 1) * ANCHO_CONTENEDOR,
           index * ANCHO_CONTENEDOR,
@@ -56,7 +51,7 @@ function Backdrop({ scrollX }) {
         return (
           <Animated.Image
             key={index}
-            source={{ uri: imagen }}
+            source={{ uri: data }}
             style={[
               { width: width, height: ALTURA_BACKDROP, opacity },
               StyleSheet.absoluteFillObject,
@@ -98,7 +93,7 @@ export default function App() {
         snapToInterval={ANCHO_CONTENEDOR}
         decelerationRate={0}
         scrollEventThrottle={16}
-        data={imagenes}
+        data={data}
         keyExtractor={(item) => item}
         renderItem={({ item, index }) => {
           const inputRange = [
@@ -125,7 +120,7 @@ export default function App() {
               >
                 <Image source={{ uri: item }} style={styles.posterImage} />
                 <Text style={{ fontWeight: "bold", fontSize: 26, color: 'red' }}>
-                  {item.title}
+
                   
                 </Text>
               </Animated.View>

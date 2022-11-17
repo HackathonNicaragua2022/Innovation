@@ -33,7 +33,8 @@ const Inicio = () => {
 const styles = StyleSheet.create({
     fondo:{
         flex: 1,
-        backgroundColor: '#1c1b29',
+        //backgroundColor: '#1c1b29',
+        backgroundColor: 'white'
     },
 
     image:{

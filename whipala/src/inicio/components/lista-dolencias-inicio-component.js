@@ -99,7 +99,8 @@ const styles = StyleSheet.create({
         height: 60,
         marginTop: -60,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'center'
     },
 
     iconoFondo:{
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     titulo: {
         fontSize: 25,
         fontWeight: 'bold',
-        marginLeft: 5
+        marginLeft: -5
     },
     
     fondoIcono:{
@@ -123,11 +124,14 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 50,
-        marginLeft: 10
+        marginLeft: 5,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
 
     iconoEstilo: {
-
+        width: 40,
+        height: 40
     }
 })
 

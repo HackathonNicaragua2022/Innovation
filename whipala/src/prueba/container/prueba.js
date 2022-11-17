@@ -1,3 +1,50 @@
+/*import React, {Component} from 'react';
+
+import ListaDolencias from './../component/prueba';
+
+class ListaDolenciasContainer extends Component {
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+
+            data: [
+                {
+                    key: 1,
+                    enfermedad: 'Anemia',
+                    imagen: require('./../../assets/banner.jpg'),
+                },
+                {
+                    key: 2,
+                    enfermedad: 'Asma',
+                    imagen: require('./../../assets/banner2.jpg'),
+                    icono: require('./../../assets/enfermedad-autoinmune.png')                },
+                {
+                    key: 3,
+                    enfermedad: 'Anciedad',
+                    imagen: require('./../../assets/banner3.jpg'),
+                },
+        ]
+            
+        }
+    }
+
+    render(){
+
+        const {data} = this.state
+
+        return(
+            <ListaDolencias
+                data = {data}
+            />
+        );
+
+    }
+}
+
+export default ListaDolenciasContainer;*/
+
 import { StatusBar } from "react-native";
 import React from "react";
 import {
@@ -13,12 +60,13 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 
 const imagenes = [
-  {
-    imagenCargar:  "https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    titulo: 'hebfuybu'
-  }
- 
-
+  "https://images.unsplash.com/photo-1559494007-9f5847c49d94?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+  "https://images.unsplash.com/photo-1506477331477-33d5d8b3dc85?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2425&q=80",
+  "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=652&q=80",
+  "https://images.unsplash.com/photo-1525183995014-bd94c0750cd5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+  "https://images.unsplash.com/photo-1488462237308-ecaa28b729d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=714&q=80",
+  "https://images.unsplash.com/photo-1503756234508-e32369269deb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1035&q=80",
+  "https://images.unsplash.com/photo-1504681869696-d977211a5f4c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=652&q=80",
 ];
 
 const width = Dimensions.get("window").width;
@@ -42,7 +90,7 @@ function Backdrop({ scrollX }) {
         StyleSheet.absoluteFillObject,
       ]}
     >
-      {imagenes.map((imagen, title, index) => {
+      {imagenes.map((imagen, index) => {
         const inputRange = [
           (index - 1) * ANCHO_CONTENEDOR,
           index * ANCHO_CONTENEDOR,
@@ -124,9 +172,9 @@ export default function App() {
                 }}
               >
                 <Image source={{ uri: item }} style={styles.posterImage} />
-                <Text style={{ fontWeight: "bold", fontSize: 26, color: 'red' }}>
-                  {item.title}
-                  
+                <Text style={{ fontWeight: "bold", fontSize: 26 , color: 'red'}}>
+                  {" "}
+                  Título
                 </Text>
               </Animated.View>
             </View>
