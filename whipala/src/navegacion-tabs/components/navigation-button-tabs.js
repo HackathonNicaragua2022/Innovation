@@ -30,10 +30,10 @@ const App = () => {
         })}
         
         tabBarOptions={{
-          activeTintColor: '#005202',
-          activeBackgroundColor: "white",
-          inactiveTintColor: '#005202',
-          inactiveBackgroundColor: 'white',
+          activeTintColor: '#b2ff59',
+          activeBackgroundColor: "#3b6376",
+          inactiveTintColor: '#b2ff59',
+          inactiveBackgroundColor: '#3b6376',
         }}
 
         initialRouteName="Inicio"

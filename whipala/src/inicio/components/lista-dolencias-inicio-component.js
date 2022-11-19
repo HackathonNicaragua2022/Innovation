@@ -1,138 +1,211 @@
-import React from 'react'
+import React from 'react';
 
 import {
-    View,
-    Text,
+    StatusBar,
     StyleSheet,
+    View,
     FlatList,
+    Image,
+    Dimensions,
     SafeAreaView,
-    Image
-} from 'react-native'
+    Animated,
+    Text,
+    TouchableOpacity
+} from 'react-native';
 
-const ListaDolencias = (props) => { 
+import LinearGradient from 'react-native-linear-gradient';
 
-    const { data } = props;
+const width = Dimensions.get("window").width;
+const heigth = Dimensions.get("window").height;
 
+const ANCHO_CONTENEDOR = width * 0.7;
+const ANCHO_LATERAL = (width - ANCHO_CONTENEDOR) / 2;
+const ESPACIO = 10;
+const ALTURA_BACKDROP = heigth * 0.5;
+
+const BackDrop = ({scrollX, imagenes}) => {
     return(
-         
-        <SafeAreaView style = {styles.fondoFlatList}>
-            <View >              
-                <FlatList
-                    data = {data}
-                    horizontal
-                    ListEmptyComponent = {() => <Text>Componente de texto</Text>}
-                    renderItem = {
-                        ({item}) => <Element item = {item}/>
-                    }
-                    ItemSeparatorComponent = {() => <View style = {styles.separador}/>}
-                />
-            </View>
-        </SafeAreaView>
+        <View 
+            style = {
+                (
+                    [{
+                    height: ALTURA_BACKDROP,
+                    width,
+                    position: 'absolute',
+                    top: 0,
+                    }],
+                    StyleSheet.absoluteFillObject
+                )
+            }
+        >
+            {
+                imagenes.map((imagen, index) => {
+                    const inputRange = [
+                        (index - 1) * ANCHO_CONTENEDOR,
+                        index * ANCHO_CONTENEDOR,
+                        (index + 1) * ANCHO_CONTENEDOR,
+                    ];
 
-    );
+                    const opacity = scrollX.interpolate({
+                        inputRange,
+                        outputRange: [0, 1, 0],
+                    });
 
-}
-
-const Element = ( props ) => {
-
-    const { item } = props;
-    
-    return(
-        
-        <View style = {styles.fondo}>
-
-            <View style = {styles.fondoLista}>
-
-                <Image
-                    source = {item.imagen}
-                    style = {styles.fondoseccion}
-                /> 
-            </View>
-
-            <View style = {styles.direccion}>
-                <View style = {styles.iconoFondo}>
-                    <View style = {styles.fondoIcono}>
-                        <Image
-                            source = {item.icono}
-                            style = {styles.iconoEstilo}
-                        />
+                    return (
+                        <View>
+                            <Animated.Image
+                                key={index}
+                                source={imagen.imagenX}
+                                    style={[
+                                        { 
+                                            width: width, 
+                                            height: ALTURA_BACKDROP,
+                                            opacity,
+                                        },
+                                    StyleSheet.absoluteFillObject,
+                                ]}
+                            />
                     </View>
-                </View>
+                    );
+                })
+            }
 
-                <View style = {styles.informacion}>
-                    <Text  style = {styles.titulo}>
-                        {item.enfermedad}
-                    </Text>
-                </View>
-            </View>
-
+            <LinearGradient
+                colors={['transparent', '#102d3b']}
+                style = {styles.degradado}
+            />
         </View>
     );
 }
 
+const ListaDolencia = (props) => {
+
+    const {data} = props;
+
+    const scrollX = React.useRef(new Animated.Value(0)).current;
+
+    return(
+        <SafeAreaView style = {styles.container}>
+
+            <BackDrop 
+                scrollX = { scrollX }
+                imagenes = {data}
+            />
+        
+            <StatusBar hidden />
+            
+            <Animated.FlatList
+                //Propiedades de Animaciones
+                onScroll = { Animated.event(
+                    [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+                    { useNativeDriver: true }
+                )}
+
+                //Propiedades del FlatList
+                data  = {data}
+                horizontal = {true}
+                showsHorizontalScrollIndicator = {false}
+                contentContainerStyle = {style = styles.content}
+                decelerationRate = { 0 }
+                snapToInterval = { ANCHO_CONTENEDOR }
+                scrollEventThrottle = { 16 }
+                keyExtractor = {(item) => item}
+                renderItem = {
+                    ({item, index}) => {
+
+                        const inputRange = [
+                            (index - 1) * ANCHO_CONTENEDOR,
+                             index * ANCHO_CONTENEDOR,
+                            (index + 1) * ANCHO_CONTENEDOR,
+                        ];
+
+                        const outputRange = [0, -50, 0];
+                        
+                        const translateY = scrollX.interpolate({
+                            inputRange,
+                            outputRange,
+                        });
+
+
+                        return  <View style = {styles.containerElement}>
+                                <TouchableOpacity>
+                                        <Animated.View 
+                                            style = {{
+                                                marginHorizontal: ESPACIO,
+                                                padding: 7,
+                                                borderRadius: 34,
+                                                backgroundColor: '#102d3b',
+                                                alignItems: 'center',
+                                                transform: [{ translateY}],
+                                            }}
+                                        >
+                                            
+                                            <Image
+                                                source = {item.imagenX}
+                                                style = {styles.posterImage}
+                                            />
+                                            <Text
+                                                style = {styles.titulo}
+                                            >
+                                                {item.enfermedad}
+                                            </Text>
+                                        </Animated.View>
+                                    </TouchableOpacity>
+                                </View>
+                    }
+                }
+            />
+        </SafeAreaView>
+    )
+}
+
 const styles = StyleSheet.create({
-    fondo: {
-        alignItems: 'center',
-        marginTop: 10,
-    },
 
-    fondoLista: {
-        width: '100%',
-    },
-
-    fondoseccion: {
-        width: 350,
-        height: 250,
-        borderRadius: 20
-    },
-
-    separador: {
-        width: 15
-    },
-    fondoFlatList:{
+    //Primera seccion
+    container: {
         flex: 1,
-        padding: 5
-    },
-
-    direccion:{
-        width: 350,
-        height: 60,
-        marginTop: -60,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-
-    iconoFondo:{
-        width: '20%',
-    },
-
-    informacion: {
-        width: '80%',
-        alignContent: 'center',
+        backgroundColor: '#102d3b',
+        alignItems: 'center',
         justifyContent: 'center',
     },
-
-    titulo: {
-        fontSize: 25,
-        fontWeight: 'bold',
-        marginLeft: -5
-    },
-    
-    fondoIcono:{
-        backgroundColor: '#282840',
-        width: 50,
-        height: 50,
-        borderRadius: 50,
-        marginLeft: 5,
-        alignItems: 'center',
-        justifyContent: 'center'
+    posterImage:{
+        width:'100%',
+        height: ANCHO_CONTENEDOR * 1.2,
+        resizeMode: 'cover',
+        borderRadius: 24,
+        margin: 0,
+        marginBottom: 10,
     },
 
-    iconoEstilo: {
-        width: 40,
-        height: 40
+    //Seccion del FlatList
+
+    containerElement:{
+        width: ANCHO_CONTENEDOR,
+    },
+    content:{
+        paddingTop: 200,
+        paddingHorizontal: ANCHO_LATERAL,
+    },
+    titulo:{
+        color: '#fff',
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+
+    //Estilos de BackDrop
+    imagenFondo:{
+        height: ALTURA_BACKDROP,
+        width,
+        position: 'absolute',
+        top: 0,
+    },
+
+    degradado: {
+        height: ALTURA_BACKDROP,
+        width,
+        position: 'absolute',
+        top: 0,
     }
 })
 
-export default ListaDolencias;
+export default ListaDolencia;

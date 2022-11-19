@@ -8,23 +8,17 @@ import {
     View
 } from 'react-native';
 
-import Encabezado from './encabezado-inicio-component';
-import ListaDolencias from './../containers/lista-dolencias-container'
+//import Encabezado from './encabezado-inicio-component';
+import ListaDolencias from './../containers/lista-dolencias-container';
+import ListaPlantas from './../containers/lista-plantas-container';
 
 const Inicio = () => {
 
     return(
         <ScrollView  style = {styles.fondo}>
-            <Image
-                source = {require('./../../assets/imagen-fondo.png')}
-                style = {styles.image}
-            /> 
-                
-            <Encabezado/>
-
-            <View  style = {styles.espacio}/>
 
             <ListaDolencias/>
+            <ListaPlantas/>
 
         </ScrollView>
     )

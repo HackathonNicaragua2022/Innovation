@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-import ListaDolencias from './../components/lista-dolencias-inicio-component';
+import ListaDolencia from './../components/lista-dolencias-inicio-component';
 
-class ListaDolenciasContainer extends Component {
+class ListaDolenciaContainer extends Component {
 
     constructor(props){
         super(props);
@@ -10,40 +10,38 @@ class ListaDolenciasContainer extends Component {
         this.state = {
 
             data: [
-                {
-                    key: 1,
+                {   key: 1,
                     enfermedad: 'Anemia',
-                    imagen: require('./../../assets/banner.jpg'),
-                    icono: require('./../../assets/enfermedad-autoinmune.png'),
+                    imagenX: require('./../../assets/banner.jpg'),
+                    descripcion: 'hola'
                 },
                 {
-                    key: 2,
-                    enfermedad: 'Asma',
-                    imagen: require('./../../assets/banner2.jpg'),
-                    icono: require('./../../assets/enfermedad-autoinmune.png'),
+                   key: 2,
+                    enfermedad: 'Cancer',
+                    imagenX: require('./../../assets/banner2.jpg'),
+                    descripcion: 'perro'
                 },
                 {
-                    key: 3,
-                    enfermedad: 'Anciedad',
-                    imagen: require('./../../assets/banner3.jpg'),
-                    icono: require('./../../assets/enfermedad-autoinmune.png'),
+                    key:3,
+                    enfermedad: 'Diavetes',
+                    imagenX: require('./../../assets/banner3.jpg'),
                 },
-        ]
+            ]
             
         }
     }
 
     render(){
 
-        const {data} = this.state
+        const {data} = this.state;
 
         return(
-            <ListaDolencias
-                data = {data}
+            <ListaDolencia
+                data = {data} 
             />
         );
 
     }
 }
 
-export default ListaDolenciasContainer;
+export default ListaDolenciaContainer;
