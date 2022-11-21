@@ -64,7 +64,6 @@ const Element = ( props ) => {
                     <View style = {styles.efecto}>
                         </View>
                             <Text style = {styles.info}>{item.titulo}</Text>
-                            
                         </View>
                     <View style = {styles.separadorFin}/>
 
@@ -90,8 +89,8 @@ const styles = StyleSheet.create({
         width: 250,
         height: 200,
         borderRadius: 20,
-        borderWidth: 3,
-        borderColor: '#3b6376'
+        //borderWidth: 3,
+        //borderColor: '#3b6376'
     },
 
     separador: {
@@ -101,17 +100,16 @@ const styles = StyleSheet.create({
     fondoFlatList:{
         flex: 1,
         padding: 10,
-        backgroundColor: '#102d3b'
+        backgroundColor: '#f7f5fc'
     },   
     efecto:{
         backgroundColor: 'black',
-        width: 242,
+        width: 250,
         height: 45,
         opacity: 0.5,
-        marginTop: 0,
+        marginTop: 2,
         borderBottomRightRadius: 20,
         borderBottomLeftRadius: 20,
-        marginLeft: 5,
     },
 
     separadorFin:{
@@ -128,7 +126,7 @@ const styles = StyleSheet.create({
         marginLeft: 15
     },
     indicador:{
-        color: '#fff',
+        color: '#102d3b',
         fontSize: 25,
         fontWeight: 'bold'
     }

@@ -71,7 +71,7 @@ const BackDrop = ({scrollX, imagenes}) => {
             }
 
             <LinearGradient
-                colors={['transparent', '#102d3b']}
+                colors={['transparent', '#f7f5fc']}
                 style = {styles.degradado}
             />
         </View>
@@ -134,7 +134,7 @@ const ListaDolencia = (props) => {
                                                 marginHorizontal: ESPACIO,
                                                 padding: 7,
                                                 borderRadius: 34,
-                                                backgroundColor: '#102d3b',
+                                                backgroundColor: '#f7f5fc',
                                                 alignItems: 'center',
                                                 transform: [{ translateY}],
                                             }}
@@ -164,7 +164,8 @@ const styles = StyleSheet.create({
     //Primera seccion
     container: {
         flex: 1,
-        backgroundColor: '#102d3b',
+        //backgroundColor: '#102d3b',
+        backgroundColor: '#f7f5fc',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -187,7 +188,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: ANCHO_LATERAL,
     },
     titulo:{
-        color: '#fff',
+        color: '#102d3b',
         fontSize: 20,
         fontWeight: 'bold'
     },

@@ -5,10 +5,11 @@ import {
 } from '@react-navigation/bottom-tabs';
 
 
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import InicioStackScreen from './stack-inicio-screen';
-import CalendarioStackScreen from './stack-calendario-screen'
+import CalendarioStackScreen from './stack-calendario-screen';
+import NotificacionesStackScreen from './stack-notificaciones-screen';
 
 const Tab = createBottomTabNavigator();
 
@@ -21,26 +22,36 @@ const App = () => {
 
             if (route.name === 'Inicio') {
               iconName = focused
-                ? 'calendar-outline'
-                : 'calendar-outline';
+                ? 'home'
+                : 'home-outline';
             } else if (route.name === 'Calendario') {
-              iconName = focused ? 'analytics-outline' : 'analytics-outline';
-            } 
-
-            return <Ionicons name={iconName} size={size} color={color} />;
+              iconName = focused ? 'calendar' : 'calendar-outline';
+            } else if (route.name === 'Notificaciones') {
+              iconName = focused ? 'notifications' : 'notifications-outline';
+            }
+            return <Icon name={iconName} size={size} color={color} />;
           },
         })}
         
         tabBarOptions={{
-          activeTintColor: '#b2ff59',
-          activeBackgroundColor: "#3b6376",
-          inactiveTintColor: '#b2ff59',
-          inactiveBackgroundColor: '#3b6376',
+          activeTintColor: '#60be8c',
+          activeBackgroundColor: "#fff",
+          inactiveTintColor: '#525275',
+          inactiveBackgroundColor: '#f7f5fc',
         }}
 
         initialRouteName="Inicio"
 
         >
+
+            <Tab.Screen 
+                name = "Notificaciones" 
+                component = { NotificacionesStackScreen } 
+                options={{
+                    title: "Notificaciones",
+                    headerShown: false
+                }}  
+            />
 
             <Tab.Screen 
                 name = "Inicio" 
@@ -58,13 +69,7 @@ const App = () => {
                     title: "Calendario",
                     headerShown: false
                 }}  
-                
-                 
-            
         />
-
-        
-        
       </Tab.Navigator>
   );
 

@@ -11,6 +11,7 @@ import {
 //import Encabezado from './encabezado-inicio-component';
 import ListaDolencias from './../containers/lista-dolencias-container';
 import ListaPlantas from './../containers/lista-plantas-container';
+import ListaPublicacion from './../containers/lista-publiciones-container'
 
 const Inicio = () => {
 
@@ -19,6 +20,7 @@ const Inicio = () => {
 
             <ListaDolencias/>
             <ListaPlantas/>
+            <ListaPublicacion/>
 
         </ScrollView>
     )
