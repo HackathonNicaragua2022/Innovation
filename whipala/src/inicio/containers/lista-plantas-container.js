@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import firestore from '@react-native-firebase/firestore';
+
 
 import ListaPlantas from './../components/lista-plantas-inicio-component';
 
@@ -9,29 +11,30 @@ class ListaPlantasContainer extends Component {
 
         this.state = {
 
-            data: [
-                {   key: 1,
-                    titulo: 'Savila',
-                    imagenF: require('./../../assets/banner.jpg'),
-                    icono: require('./../../assets/enfermedad-autoinmune.png'),
-                },
-                {
-                   key: 2,
-                    titulo: 'Limon',
-                    imagenF: require('./../../assets/banner.jpg'),
-                    icono: require('./../../assets/enfermedad-autoinmune.png'),
-                },
-                {
-                    key:3,
-                    titulo: 'Sacate',
-                    imagenF: require('./../../assets/banner.jpg'),
-                    icono: require('./../../assets/enfermedad-autoinmune.png'),
-                },
-            ]
+            data: []
             
         }
     }
 
+    loadData = () => {
+        const plantas = firestore().collection('lista-plantas').onSnapshot(querySnapshot =>{
+    
+        const listaPlantas = [];
+    
+          querySnapshot.forEach(documentSnapshot =>{
+            listaPlantas.push({
+              ...documentSnapshot.data(),
+              key: documentSnapshot.id,
+            })
+          })
+          
+          this.setState({
+            data: listaPlantas
+          })
+        })
+    
+        return () => plantas();
+      }
     render(){
 
         const {data} = this.state;
@@ -41,8 +44,12 @@ class ListaPlantasContainer extends Component {
                 data = {data} 
             />
         );
-
+        
     }
+
+    componentDidMount(){
+        this.loadData()
+      }
 }
 
 export default ListaPlantasContainer;

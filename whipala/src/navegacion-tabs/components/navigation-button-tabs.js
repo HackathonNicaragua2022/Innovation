@@ -8,7 +8,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import InicioStackScreen from './stack-inicio-screen';
-
+import CalendarioStackScreen from './stack-calendario-screen'
 
 const Tab = createBottomTabNavigator();
 
@@ -23,6 +23,8 @@ const App = () => {
               iconName = focused
                 ? 'calendar-outline'
                 : 'calendar-outline';
+            } else if (route.name === 'Calendario') {
+              iconName = focused ? 'analytics-outline' : 'analytics-outline';
             } 
 
             return <Ionicons name={iconName} size={size} color={color} />;
@@ -46,9 +48,22 @@ const App = () => {
                 options={{
                     title: "Inicio",
                     headerShown: false
+                }}
+            />
+
+            <Tab.Screen 
+                name = "Calendario" 
+                component = { CalendarioStackScreen } 
+                options={{
+                    title: "Calendario",
+                    headerShown: false
                 }}  
+                
+                 
             
         />
+
+        
         
       </Tab.Navigator>
   );

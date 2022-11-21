@@ -55,7 +55,7 @@ const BackDrop = ({scrollX, imagenes}) => {
                         <View>
                             <Animated.Image
                                 key={index}
-                                source={imagen.imagenX}
+                                source={{ uri: imagen.imagenDolencia }}
                                     style={[
                                         { 
                                             width: width, 
@@ -109,7 +109,7 @@ const ListaDolencia = (props) => {
                 decelerationRate = { 0 }
                 snapToInterval = { ANCHO_CONTENEDOR }
                 scrollEventThrottle = { 16 }
-                keyExtractor = {(item) => item}
+                keyExtractor = {(item) => item.key}
                 renderItem = {
                     ({item, index}) => {
 
@@ -141,13 +141,13 @@ const ListaDolencia = (props) => {
                                         >
                                             
                                             <Image
-                                                source = {item.imagenX}
+                                                source = {{ uri: item.imagenDolencia }}
                                                 style = {styles.posterImage}
                                             />
                                             <Text
                                                 style = {styles.titulo}
                                             >
-                                                {item.enfermedad}
+                                                {item.titulo}
                                             </Text>
                                         </Animated.View>
                                     </TouchableOpacity>

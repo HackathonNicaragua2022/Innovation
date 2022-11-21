@@ -55,7 +55,7 @@ const Element = ( props ) => {
                 <View style = {styles.fondoLista}>
 
                     <Image
-                        source = {item.imagenF}
+                        source = {{uri: item.imagenPlanta}}
                         style = {styles.fondoseccion}
                     /> 
                     
@@ -63,7 +63,7 @@ const Element = ( props ) => {
 
                     <View style = {styles.efecto}>
                         </View>
-                            <Text style = {styles.info}>Limón</Text>
+                            <Text style = {styles.info}>{item.titulo}</Text>
                             
                         </View>
                     <View style = {styles.separadorFin}/>
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
         marginTop: 0,
         borderBottomRightRadius: 20,
         borderBottomLeftRadius: 20,
-        marginLeft: 5
+        marginLeft: 5,
     },
 
     separadorFin:{
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     },
     info:{
         color: 'white', 
-        fontSize: 22, 
+        fontSize: 20, 
         fontWeight: 'bold',          
         marginTop: -38, 
         marginLeft: 15

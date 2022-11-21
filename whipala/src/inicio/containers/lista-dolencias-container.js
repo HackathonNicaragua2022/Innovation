@@ -1,4 +1,5 @@
-import React, {Component} from 'react';
+import React, {Component } from 'react';
+import firestore from '@react-native-firebase/firestore';
 
 import ListaDolencia from './../components/lista-dolencias-inicio-component';
 
@@ -8,39 +9,44 @@ class ListaDolenciaContainer extends Component {
         super(props);
 
         this.state = {
-
-            data: [
-                {   key: 1,
-                    enfermedad: 'Anemia',
-                    imagenX: require('./../../assets/banner.jpg'),
-                    descripcion: 'hola'
-                },
-                {
-                   key: 2,
-                    enfermedad: 'Cancer',
-                    imagenX: require('./../../assets/banner2.jpg'),
-                    descripcion: 'perro'
-                },
-                {
-                    key:3,
-                    enfermedad: 'Diavetes',
-                    imagenX: require('./../../assets/banner3.jpg'),
-                },
-            ]
-            
+            data: [],
         }
     }
 
+     loadData = () => {
+      const dolencias = firestore().collection('lista-dolencias').onSnapshot(querySnapshot =>{
+  
+      const listaDolencia = [];
+  
+        querySnapshot.forEach(documentSnapshot =>{
+          listaDolencia.push({
+            ...documentSnapshot.data(),
+            key: documentSnapshot.id,
+          })
+        })
+        
+        this.setState({
+          data: listaDolencia
+        })
+      })
+  
+      return () => dolencias();
+    }
+
+  
     render(){
 
-        const {data} = this.state;
+        const {data} = this.state;     
 
         return(
             <ListaDolencia
                 data = {data} 
             />
         );
+    }
 
+    componentDidMount(){
+      this.loadData()
     }
 }
 
