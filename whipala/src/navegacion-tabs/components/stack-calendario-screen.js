@@ -9,7 +9,7 @@ const CalendarioStackScreen = () => {
     return(
         <CalendarioStack.Navigator>
             <CalendarioStack.Screen
-                name = "Inicio"
+                name = "Citas"
                 component = { Calendario }
                 options = {{
                     headerShown: false

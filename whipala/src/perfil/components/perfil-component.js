@@ -7,84 +7,72 @@ import {
     FlatList,
     SafeAreaView,
     Image,
-    TouchableOpacity
+    TouchableOpacity,
+    ScrollView
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import Redes from './redes-component';
+import Suscripcion from './suscripcion-component';
 
-const ListaNotificacion = (props) => { 
-
-    const { data, navigateNotificacionDetalle } = props;
+const ListaNotificacion = () => { 
 
     return(
-        <SafeAreaView style = {styles.fondoFlatList}>
+        <ScrollView style = {styles.fondoFlatList}>
 
             <View style = {styles.efectoSuperior}>
                 <Text
                     style = {styles.indicador}
                 >
-                    Notificaciones
+                    Perfil
                 </Text>
             </View>
 
             <View style = {{height: 15}}/>
 
-            <View >              
-                <FlatList
-                    data = {data}
-                    showsHorizontalScrollIndicator = {false}
-                    ListEmptyComponent = {() => <Text>Componente de texto</Text>}
-                    renderItem = {
-                        ({item}) => <Element item = {item}  onPress = {() => { navigateNotificacionDetalle(item); }}/>
-                    }
-                    ItemSeparatorComponent = {() => <View style = {styles.separador}/>}
-                />
-            </View>
-        </SafeAreaView>
-
-    );
-
-}
-
-const Element = ( props ) => {
-
-    const { item, onPress } = props;
-    
-    
-    return(
-
-        <TouchableOpacity
-        onPress = {onPress}
-        >
+            <TouchableOpacity>
         
-            <View style = {styles.fondo}>
+                <View style = {styles.fondo}>
 
-                <View style = {styles.fondoLista}>
+                    <View style = {styles.fondoLista}>
 
-                    <View style = {styles.direccion}>
-                        <View style = {styles.porcentaje1}>
-                            <View style = {styles.icono}>
-                                <Icon name={item.icono} size={25} color={'#3a7456'}></Icon>
+                        <View style = {styles.direccion}>
+                            <View style = {styles.porcentaje1}>
+                                <View style = {styles.icono}>
+                                    <Icon name= 'person-outline' size={25} color={'#3a7456'}></Icon>
+                                </View>
+                            </View>
+
+                            <View style = {styles.porcentaje2}>
+                                <Text style = {styles.titulo}>
+                                Kevin Castro
+                                </Text>
+
+                                <Text style = {styles.eti}>
+                                    kc83208@gmail.com
+                                </Text>
+                            </View>
+
+                            <View style = {styles.porcentaje3}>
+                                <View style = {styles.iconoEditar}>
+                                    <Icon name= 'pencil' size={20} color={'#3a7456'}></Icon>
+                                </View>
                             </View>
                         </View>
-
-                        <View style = {styles.porcentaje2}>
-                            <Text style = {styles.titulo}>
-                                {item.titulo}
-                            </Text>
-
-                            <Text style = {styles.eti}>
-                                {item.etiqueta}
-                            </Text>
-                        </View>
+                    
                     </View>
-                
+
                 </View>
 
-            </View>
+            </TouchableOpacity>
 
-        </TouchableOpacity>
+            <Suscripcion/>
+            <Redes/>
+
+        </ScrollView>
+
     );
+
 }
 
 const styles = StyleSheet.create({
@@ -124,6 +112,14 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+    iconoEditar:{
+        width: 40,
+        height: 40,
+        backgroundColor: '#c6e0d9',
+        borderRadius: 40,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     direccion: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -144,11 +140,12 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline'
     },
     porcentaje1: {
-        width: '20%'
+        width: '20%',
     },
     porcentaje2:{
-        width: '80%',
+        width: '70%',
     },
+
     efectoSuperior:{
         backgroundColor: '#60be8c',
         height: 110,
@@ -156,7 +153,7 @@ const styles = StyleSheet.create({
         marginTop: -25,
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
 })
 
 export default ListaNotificacion;

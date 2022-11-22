@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import firestore from '@react-native-firebase/firestore';
 
 
-import ListaNotificacion from './../components/lista-notificaciones-component'
+import ListaFarmacia from './../components/lista-farmacia-component'
 
-class ListaNotificacionContainer extends Component {
+class ListaFarmaciaContainer extends Component {
 
     constructor(props){
         super(props);
@@ -17,7 +17,7 @@ class ListaNotificacionContainer extends Component {
     }
 
     loadData = () => {
-        const notificaciones = firestore().collection('lista-notificaciones').onSnapshot(querySnapshot =>{
+        const notificaciones = firestore().collection('lista-farmacia').onSnapshot(querySnapshot =>{
     
         const listaNotificaciones = [];
     
@@ -27,31 +27,23 @@ class ListaNotificacionContainer extends Component {
               key: documentSnapshot.id,
             })
           })
-          
+
           this.setState({
             data: listaNotificaciones
           })
+
         })
     
         return () => notificaciones();
       }
-
-
-      navigateNotificacionDetalle = (notificaciones) => {
-        this.props.navigation.navigate('NotificacionesDetalle',{
-          notificaciones: notificaciones
-        })
-      }
-
       
     render(){
 
         const {data} = this.state;
 
         return(
-            <ListaNotificacion
+            <ListaFarmacia
                 data = {data} 
-                navigateNotificacionDetalle = {this.navigateNotificacionDetalle}
             />
         );
         
@@ -62,4 +54,4 @@ class ListaNotificacionContainer extends Component {
       }
 }
 
-export default ListaNotificacionContainer;
+export default ListaFarmaciaContainer;

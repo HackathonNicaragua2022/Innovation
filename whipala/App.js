@@ -1,61 +1,35 @@
-import React, {useEffect, useState} from 'react'
-import {View, Text, StyleSheet, FlatList, SafeAreaView} from 'react-native'
+import React, { useCallback } from "react";
+import { Alert, Button, Linking, StyleSheet, View , } from "react-native";
 
-import firestore from '@react-native-firebase/firestore';
+const supportedURL = 'https://www.facebook.com/edward.blandon.31/';
 
-const App = () =>{
+const OpenURLButton = ({ url, children }) => {
+  const handlePress = useCallback( () => {
+    // Checking if the link is supported for links with custom URL scheme.
+    const supported = Linking.canOpenURL(url);
 
-  const [data, setData] = useState()
+    if (supported) {
+      // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+      // by some browser in the mobile
+       Linking.openURL(url);
+    } else {
+      Alert.alert(`Don't know how to open this URL: ${url}`);
+    }
+  }, [url]);
 
-  async function loadData() {
-    const dolencias = firestore().collection('lista-dolencias').onSnapshot(querySnapshot =>{
+  return <Button title={children} onPress={handlePress}/>;
+};
 
-    const listaDolencia = [];
-
-      querySnapshot.forEach(documentSnapshot =>{
-        listaDolencia.push({
-          ...documentSnapshot.data(),
-          key: documentSnapshot.id,
-        })
-      })
-
-      setData(listaDolencia);
-    })
-
-    return () => dolencias();
-  }
-
-  useEffect(() => {
-    loadData();
-  }, [])
-
+const App = () => {
   return (
-    <SafeAreaView style = {{flex:1}}>
-    <View style = {{padding: 10, flex: 1, backgroundColor: '#fff'}}>
-      <Text style = {{color: '#000'}}>
-       Dolencias
-      </Text>
-        <FlatList
-          data = { data }
-          keyExtractor = {item => item.key}
-          renderItem = {
-            ({item}) => <Element item = {item}/>
-          }
-        />
+    <View style={styles.container}>
+      <OpenURLButton url={supportedURL}>Open Supported URL fdgdfg</OpenURLButton>
     </View>
-    </SafeAreaView>
-  )
-}
+  );
+};
 
-const  Element = (props) =>{
-  const {item} = props;
-  return(
-    <View style = {{width: '100%', height: 80, backgroundColor: 'green'}}>
-      <Text  style = {{color: '#000'}}>primero</Text>
-      <Text style = {{color: '#000'}}> {item.titulo} </Text>
-    </View>
-  )
-}
-
+const styles = StyleSheet.create({
+  container: { flex: 1, justifyContent: "center", alignItems: "center" },
+});
 
 export default App;

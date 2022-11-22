@@ -12,9 +12,9 @@ import {
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const ListaNotificacion = (props) => { 
+const ListaFarmacia = (props) => { 
 
-    const { data, navigateNotificacionDetalle } = props;
+    const { data } = props;
 
     return(
         <SafeAreaView style = {styles.fondoFlatList}>
@@ -23,7 +23,7 @@ const ListaNotificacion = (props) => {
                 <Text
                     style = {styles.indicador}
                 >
-                    Notificaciones
+                    Farmacia
                 </Text>
             </View>
 
@@ -35,7 +35,7 @@ const ListaNotificacion = (props) => {
                     showsHorizontalScrollIndicator = {false}
                     ListEmptyComponent = {() => <Text>Componente de texto</Text>}
                     renderItem = {
-                        ({item}) => <Element item = {item}  onPress = {() => { navigateNotificacionDetalle(item); }}/>
+                        ({item}) => <Element item = {item}/>
                     }
                     ItemSeparatorComponent = {() => <View style = {styles.separador}/>}
                 />
@@ -48,14 +48,11 @@ const ListaNotificacion = (props) => {
 
 const Element = ( props ) => {
 
-    const { item, onPress } = props;
-    
+    const { item } = props;
     
     return(
 
-        <TouchableOpacity
-        onPress = {onPress}
-        >
+        <TouchableOpacity>
         
             <View style = {styles.fondo}>
 
@@ -64,7 +61,10 @@ const Element = ( props ) => {
                     <View style = {styles.direccion}>
                         <View style = {styles.porcentaje1}>
                             <View style = {styles.icono}>
-                                <Icon name={item.icono} size={25} color={'#3a7456'}></Icon>
+                                <Image
+                                     source = {{uri: item.imageFarmacia}}
+                                     style = {styles.estiloImagen}
+                                />
                             </View>
                         </View>
 
@@ -74,8 +74,13 @@ const Element = ( props ) => {
                             </Text>
 
                             <Text style = {styles.eti}>
-                                {item.etiqueta}
+                                {item.descripcion}
                             </Text>
+                            
+                            <View>
+                                <Icon name={item.skill} size={25} color={'#3a7456'}></Icon>
+                            </View>
+                            
                         </View>
                     </View>
                 
@@ -117,10 +122,10 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     icono:{
-        width: 60,
-        height: 60,
+        width: 110,
+        height: 125,
         backgroundColor: '#c6e0d9',
-        borderRadius: 40,
+        borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center'
     },
@@ -129,7 +134,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         width: '95%',
         alignItems: 'center',
-        height: 100
+        height: 140
         //backgroundColor: 'blue'
     },
     titulo: {
@@ -139,15 +144,15 @@ const styles = StyleSheet.create({
     },
     eti: {
         fontSize: 15,
-        fontWeight: 'bold',
         color: '#102d3b',
-        textDecorationLine: 'underline'
     },
     porcentaje1: {
-        width: '20%'
+        width: '30%',
     },
     porcentaje2:{
-        width: '80%',
+        width: '68%',
+        height: 120,
+        justifyContent: 'space-between'
     },
     efectoSuperior:{
         backgroundColor: '#60be8c',
@@ -156,7 +161,12 @@ const styles = StyleSheet.create({
         marginTop: -25,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    estiloImagen:{
+        height: '100%',
+        width: '100%',
+        borderRadius: 10,
     }
 })
 
-export default ListaNotificacion;
+export default ListaFarmacia;

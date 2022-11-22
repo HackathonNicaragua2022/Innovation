@@ -10,6 +10,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import InicioStackScreen from './stack-inicio-screen';
 import CalendarioStackScreen from './stack-calendario-screen';
 import NotificacionesStackScreen from './stack-notificaciones-screen';
+import PerfilStackScreen from './stack-perfil-screen'
+import FarmaciaStackScreen from './stack-farmacia-screen'
 
 const Tab = createBottomTabNavigator();
 
@@ -24,10 +26,14 @@ const App = () => {
               iconName = focused
                 ? 'home'
                 : 'home-outline';
-            } else if (route.name === 'Calendario') {
+            } else if (route.name === 'Citas') {
               iconName = focused ? 'calendar' : 'calendar-outline';
             } else if (route.name === 'Notificaciones') {
               iconName = focused ? 'notifications' : 'notifications-outline';
+            } else if (route.name === 'Perfil') {
+              iconName = focused ? 'person' : 'person-outline';
+            } else if (route.name === 'Farmacia') {
+              iconName = focused ? 'pulse' : 'pulse-outline';
             }
             return <Icon name={iconName} size={size} color={color} />;
           },
@@ -43,7 +49,14 @@ const App = () => {
         initialRouteName="Inicio"
 
         >
-
+            <Tab.Screen 
+                name = "Citas" 
+                component = { CalendarioStackScreen } 
+                options={{
+                    title: "Citas",
+                    headerShown: false
+                }}  
+            />
             <Tab.Screen 
                 name = "Notificaciones" 
                 component = { NotificacionesStackScreen } 
@@ -61,15 +74,24 @@ const App = () => {
                     headerShown: false
                 }}
             />
+            
+            <Tab.Screen 
+                name = "Farmacia" 
+                component = { FarmaciaStackScreen } 
+                options={{
+                    title: "Farmacia",
+                    headerShown: false
+                }}
+            />
 
             <Tab.Screen 
-                name = "Calendario" 
-                component = { CalendarioStackScreen } 
-                options={{
-                    title: "Calendario",
-                    headerShown: false
-                }}  
-        />
+              name = "Perfil" 
+              component = { PerfilStackScreen } 
+              options={{
+                  title: "Perfil",
+                  headerShown: false
+              }}  
+            />
       </Tab.Navigator>
   );
 
