@@ -12,18 +12,30 @@ import {
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Encabezado from './../components/encabezajo-farmacia';
-import Lista from './../container/lista-farmacia-top-container';
 
 const ListaFarmacia = (props) => { 
 
-    const { data , navigateFarmaciaDetalle} = props;
+    const { data , navigateFarmaciaDetalle, dataTop} = props;
 
     return(
         <SafeAreaView style = {styles.fondoFlatList}>
 
             <Encabezado/>
 
-            <Lista/>
+            <Text style = {styles.infora}>Top de Farmacias</Text>
+
+            <View>              
+                <FlatList
+                    data = {dataTop}
+                    horizontal = {true}
+                    showsHorizontalScrollIndicator = {false}
+                    ListEmptyComponent = {() => <Text>Componente de texto</Text>}
+                    renderItem = {
+                        ({item}) => <Elemento item = {item} onPress = {() => { navigateFarmaciaDetalle(item); }}/>
+                    }
+                    ItemSeparatorComponent = {() => <View style = {styles.separadora}/>}
+                />
+            </View>
 
             <Text style = {styles.infor}>Farmacias</Text>
 
@@ -88,6 +100,51 @@ const Element = ( props ) => {
                         </View>
                     </View>
                 
+                </View>
+
+            </View>
+
+        </TouchableOpacity>
+    );
+}
+
+const Elemento = ( props ) => {
+
+    const { item, onPress } = props;
+    
+    return(
+
+        <TouchableOpacity
+            onPress={ onPress}
+        >
+        
+            <View style = {styles.fondoa}>
+
+                <View style = {styles.fondoListaa}>
+
+                    <View  style = {styles.fondoContainera}>
+                            <View>
+                                <Image
+                                    source = {{ uri: item.imagenTop }}
+                                    style = {{height: 150,
+                                    width: 180,
+                                    borderRadius: 10,
+                                    marginTop: 0}}
+                                />
+                            </View>
+                            <Text style = {styles.titulosa}>
+                                {item.titulo}
+                            </Text>
+
+                            <View style = {styles.estiloIconoLa}>
+                                <Icon name={item.skill} size={25} color={'#ebd192'}></Icon>
+                                <Icon name={item.skill2} size={25} color={'#ebd192'}></Icon>
+                                <Icon name={item.skill3} size={25} color={'#ebd192'}></Icon>
+                                <Icon name={item.skill4} size={25} color={'#ebd192'}></Icon>
+                                <Icon name={item.skill5} size={25} color={'#ebd192'}></Icon>
+                            </View>
+                    </View>
+                   
                 </View>
 
             </View>
@@ -175,6 +232,47 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     infor:{
+        color: '#102d3b',
+        paddingLeft: 12,
+        fontSize: 22,
+        fontWeight: 'bold',
+        marginTop: 25
+    }, //OTRO
+    fondoa: {
+        alignItems: 'center',
+        marginTop: 0,
+       // backgroundColor: 'red',
+        padding: 10
+    },
+
+    fondoListaa: {
+        width: 200,
+        height: 220,
+        backgroundColor: '#fff',
+        borderRadius: 15,
+        justifyContent: 'center',
+        flexDirection: 'column',
+        alignContent: 'center',
+        alignItems: 'center',
+    },
+    fondoContainera: {
+        width: '90%',
+        height: '90%',
+        //backgroundColor: 'green',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    estiloIconoLa:{
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    titulosa:{
+        color: '#102d3b', 
+        fontSize: 20, 
+        fontWeight: 'bold'
+    },
+
+    infora:{
         color: '#102d3b',
         paddingLeft: 12,
         fontSize: 22,

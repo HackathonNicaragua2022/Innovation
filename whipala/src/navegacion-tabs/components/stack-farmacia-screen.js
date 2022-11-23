@@ -3,7 +3,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import FarmaciaCon from './../../farmacia/container/lista-farmacia-container';
 import FarmaciaDetalles from './../../farmacia/container/lista-detalle-farmacia-container';
-import FarmaciaTopC from './../../farmacia/container/lista-detalle-top-container';
 
 const FarmaciaStack = createStackNavigator();
 
@@ -24,13 +23,7 @@ const FarmaciaStackScreen = () => {
                     headerShown: false
                 }} 
             />
-            <FarmaciaStack.Screen
-                name = "Top"
-                component = { FarmaciaTopC }
-                options = {{
-                    headerShown: false
-                }} 
-            />
+
         </FarmaciaStack.Navigator>
     )
 }

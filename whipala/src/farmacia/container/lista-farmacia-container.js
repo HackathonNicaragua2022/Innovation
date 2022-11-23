@@ -10,7 +10,8 @@ class ListaFarmaciaContainer extends Component {
 
         this.state = {
 
-            data: []
+            data: [],
+            dataTop: []
             
         }
     }
@@ -34,7 +35,28 @@ class ListaFarmaciaContainer extends Component {
         })
     
         return () => notificaciones();
-      }
+    }
+
+    loadDataD = () => {
+      const notificaciones = firestore().collection('lista-top-farmacia').onSnapshot(querySnapshot =>{
+  
+      const listaNotificaciones = [];
+  
+        querySnapshot.forEach(documentSnapshot =>{
+          listaNotificaciones.push({
+            ...documentSnapshot.data(),
+            key: documentSnapshot.id,
+          })
+        })
+
+        this.setState({
+          dataTop: listaNotificaciones
+        })
+
+      })
+  
+      return () => notificaciones();
+  }
 
       navigateFarmaciaDetalle = (farmacia) => {
         this.props.navigation.navigate('Prueba',{
@@ -44,11 +66,12 @@ class ListaFarmaciaContainer extends Component {
       
     render(){
 
-        const {data} = this.state;
+        const {data, dataTop} = this.state;
 
         return(
             <ListaFarmacia
                 data = {data} 
+                dataTop = {dataTop} 
                 navigateFarmaciaDetalle = {this.navigateFarmaciaDetalle}
             />
         );
@@ -57,6 +80,7 @@ class ListaFarmaciaContainer extends Component {
 
     componentDidMount(){
         this.loadData()
+        this.loadDataD()
       }
 }
 

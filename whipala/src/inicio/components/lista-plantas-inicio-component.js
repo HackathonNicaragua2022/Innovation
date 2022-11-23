@@ -13,7 +13,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const ListaDolencias = (props) => { 
 
-    const { data } = props;
+    const { data, navigateDolencia } = props;
 
     return(
         <SafeAreaView style = {styles.fondoFlatList}>
@@ -31,7 +31,7 @@ const ListaDolencias = (props) => {
                     showsHorizontalScrollIndicator = {false}
                     ListEmptyComponent = {() => <Text>Componente de texto</Text>}
                     renderItem = {
-                        ({item}) => <Element item = {item}/>
+                        ({item}) => <Element item = {item} onPress = {() => { navigateDolencia(item); }}/>
                     }
                     ItemSeparatorComponent = {() => <View style = {styles.separador}/>}
                 />
@@ -44,11 +44,13 @@ const ListaDolencias = (props) => {
 
 const Element = ( props ) => {
 
-    const { item } = props;
+    const { item, onPress } = props;
     
     return(
 
-        <TouchableOpacity>
+        <TouchableOpacity
+             onPress={onPress}
+        >
         
             <View style = {styles.fondo}>
 

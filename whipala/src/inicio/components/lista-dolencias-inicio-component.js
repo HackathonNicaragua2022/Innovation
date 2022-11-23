@@ -80,7 +80,7 @@ const BackDrop = ({scrollX, imagenes}) => {
 
 const ListaDolencia = (props) => {
 
-    const {data} = props;
+    const {data, navigateDolencia} = props;
 
     const scrollX = React.useRef(new Animated.Value(0)).current;
 
@@ -128,7 +128,9 @@ const ListaDolencia = (props) => {
 
 
                         return  <View style = {styles.containerElement}>
-                                <TouchableOpacity>
+                                <TouchableOpacity
+                                    onPress = {() => { navigateDolencia(item); }}
+                                >
                                         <Animated.View 
                                             style = {{
                                                 marginHorizontal: ESPACIO,

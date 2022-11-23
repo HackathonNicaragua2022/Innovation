@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Inicio from './../../inicio/components/inicio-component'
+import Inicio from './../../inicio/containers/lista-dolencias-container';
+import Dolencia from './../../inicio/containers/detalle-dolencia-container';
 
 const InicioStack = createStackNavigator();
 
@@ -14,6 +15,13 @@ const InicioStackScreen = () => {
                 options = {{
                     headerShown: false
                 }} 
+            />
+            <InicioStack.Screen
+                name = "Dolencia"
+                component = { Dolencia }
+                options = {{
+                headerShown: false
+            }} 
             />
         </InicioStack.Navigator>
     )

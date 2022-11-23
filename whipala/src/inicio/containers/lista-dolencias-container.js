@@ -33,6 +33,9 @@ class ListaDolenciaContainer extends Component {
       return () => dolencias();
     }
 
+    navigateDolencia = () => {
+      this.props.navigation.navigate('Dolencia')
+    }
   
     render(){
 
@@ -41,6 +44,7 @@ class ListaDolenciaContainer extends Component {
         return(
             <ListaDolencia
                 data = {data} 
+                navigateDolencia = {this.navigateDolencia}
             />
         );
     }

@@ -25,7 +25,7 @@ class ListaPlantasContainer extends Component {
             listaPlantas.push({
               ...documentSnapshot.data(),
               key: documentSnapshot.id,
-            })
+            }) 
           })
           
           this.setState({
@@ -35,13 +35,19 @@ class ListaPlantasContainer extends Component {
     
         return () => plantas();
       }
+
+      navigateDolencia = () => {
+        this.props.navigation.navigate('Dolencia')
+      }
+
     render(){
 
         const {data} = this.state;
 
         return(
             <ListaPlantas
-                data = {data} 
+                data = {data}
+                navigateDolencia = {this.navigateDolencia}
             />
         );
         
