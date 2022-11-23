@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Notificaciones from './../../notificaciones/containers/lista-notificaciones-container';
-import NotificacionesDetalle from './../../notificaciones/containers/lista-notificaciones-detalles-container';
+import NotificacionesDetalles from './../../notificaciones/containers/lista-notificaciones-detalles-container';
 
 const NotificacionesStack = createStackNavigator();
 
@@ -19,7 +19,7 @@ const NotificacionesStackScreen = () => {
 
             <NotificacionesStack.Screen
                 name = "NotificacionesDetalle"
-                component = { NotificacionesDetalle }
+                component = { NotificacionesDetalles }
                 options = {{
                     headerShown: false
                 }} 

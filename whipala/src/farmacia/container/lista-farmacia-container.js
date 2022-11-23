@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import firestore from '@react-native-firebase/firestore';
 
-
-import ListaFarmacia from './../components/lista-farmacia-component'
+import ListaFarmacia from './../components/lista-farmacia-component';
 
 class ListaFarmaciaContainer extends Component {
 
@@ -36,6 +35,12 @@ class ListaFarmaciaContainer extends Component {
     
         return () => notificaciones();
       }
+
+      navigateFarmaciaDetalle = (farmacia) => {
+        this.props.navigation.navigate('Prueba',{
+          farmacia: farmacia
+        })
+      }
       
     render(){
 
@@ -44,6 +49,7 @@ class ListaFarmaciaContainer extends Component {
         return(
             <ListaFarmacia
                 data = {data} 
+                navigateFarmaciaDetalle = {this.navigateFarmaciaDetalle}
             />
         );
         

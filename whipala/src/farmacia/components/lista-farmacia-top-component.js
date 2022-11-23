@@ -14,7 +14,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const ListaFarmaciaTop = (props) => { 
 
-    const { data } = props;
+    const { data, navigateFarmaciaDetalle } = props;
 
     return(
         <SafeAreaView style = {styles.fondoFlatList}>
@@ -28,7 +28,7 @@ const ListaFarmaciaTop = (props) => {
                     showsHorizontalScrollIndicator = {false}
                     ListEmptyComponent = {() => <Text>Componente de texto</Text>}
                     renderItem = {
-                        ({item}) => <Element item = {item}/>
+                        ({item}) => <Element item = {item} onPress = {() => { navigateFarmaciaDetalle(item); }}/>
                     }
                     ItemSeparatorComponent = {() => <View style = {styles.separador}/>}
                 />
@@ -41,11 +41,13 @@ const ListaFarmaciaTop = (props) => {
 
 const Element = ( props ) => {
 
-    const { item } = props;
+    const { item, onPress } = props;
     
     return(
 
-        <TouchableOpacity>
+        <TouchableOpacity
+            onPress={ onPress}
+        >
         
             <View style = {styles.fondo}>
 

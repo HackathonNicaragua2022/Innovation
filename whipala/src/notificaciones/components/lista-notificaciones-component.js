@@ -54,7 +54,7 @@ const Element = ( props ) => {
     return(
 
         <TouchableOpacity
-        onPress = {onPress}
+         onPress = {onPress}
         >
         
             <View style = {styles.fondo}>

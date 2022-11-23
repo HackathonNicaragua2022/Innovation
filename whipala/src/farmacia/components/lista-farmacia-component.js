@@ -11,12 +11,19 @@ import {
 } from 'react-native'
 
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Encabezado from './../components/encabezajo-farmacia';
+import Lista from './../container/lista-farmacia-top-container';
+
 const ListaFarmacia = (props) => { 
 
-    const { data } = props;
+    const { data , navigateFarmaciaDetalle} = props;
 
     return(
         <SafeAreaView style = {styles.fondoFlatList}>
+
+            <Encabezado/>
+
+            <Lista/>
 
             <Text style = {styles.infor}>Farmacias</Text>
 
@@ -26,7 +33,7 @@ const ListaFarmacia = (props) => {
                     showsHorizontalScrollIndicator = {false}
                     ListEmptyComponent = {() => <Text>Componente de texto</Text>}
                     renderItem = {
-                        ({item}) => <Element item = {item}/>
+                        ({item}) => <Element item = {item} onPress = {() => { navigateFarmaciaDetalle(item); }}/>
                     }
                     ItemSeparatorComponent = {() => <View style = {styles.separador}/>}
                 />
@@ -39,11 +46,13 @@ const ListaFarmacia = (props) => {
 
 const Element = ( props ) => {
 
-    const { item } = props;
+    const { item, onPress } = props;
     
     return(
 
-        <TouchableOpacity>
+        <TouchableOpacity
+            onPress={onPress}
+        >
         
             <View style = {styles.fondo}>
 

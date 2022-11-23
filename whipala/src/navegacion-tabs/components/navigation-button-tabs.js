@@ -26,11 +26,11 @@ const App = () => {
               iconName = focused
                 ? 'home'
                 : 'home-outline';
-            } else if (route.name === 'Citas') {
+            } else if (route.name === 'CitasS') {
               iconName = focused ? 'calendar' : 'calendar-outline';
-            } else if (route.name === 'Notificaciones') {
+            } else if (route.name === 'NotificacionesE') {
               iconName = focused ? 'notifications' : 'notifications-outline';
-            } else if (route.name === 'Perfil') {
+            } else if (route.name === 'Profiles') {
               iconName = focused ? 'person' : 'person-outline';
             } else if (route.name === 'Farmacia') {
               iconName = focused ? 'pulse' : 'pulse-outline';
@@ -50,7 +50,7 @@ const App = () => {
 
         >
             <Tab.Screen 
-                name = "Citas" 
+                name = "CitasS" 
                 component = { CalendarioStackScreen } 
                 options={{
                     title: "Citas",
@@ -58,7 +58,7 @@ const App = () => {
                 }}  
             />
             <Tab.Screen 
-                name = "Notificaciones" 
+                name = "NotificacionesE" 
                 component = { NotificacionesStackScreen } 
                 options={{
                     title: "Notificaciones",
@@ -85,7 +85,7 @@ const App = () => {
             />
 
             <Tab.Screen 
-              name = "Perfil" 
+              name = "Profiles" 
               component = { PerfilStackScreen } 
               options={{
                   title: "Perfil",
