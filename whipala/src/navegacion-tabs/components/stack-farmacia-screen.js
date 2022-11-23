@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import Farmacia from './../../farmacia/container/lista-farmacia-container'
+import Farmacia from './../../farmacia/components/contenedor'
 
 const FarmaciaStack = createStackNavigator();
 
