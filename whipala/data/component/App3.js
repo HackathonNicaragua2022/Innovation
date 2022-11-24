@@ -12,7 +12,7 @@ const Pantalla2 = (props) => {
 
     return(
         <View>
-            <Text>Pantalla 2</Text>
+            <Text>Pantalla 3</Text>
             <Button
                 title='Ir a pantalla 1'
                 onPress={

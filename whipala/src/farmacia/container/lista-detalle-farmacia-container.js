@@ -9,7 +9,7 @@ class ListaNotificacionContainer extends Component {
        const { farmacia: noti } = this.props.route.params;
 
         this.state = {
-            farmaciaDatos: {
+            farmaciaDatos: { 
                 titulo: noti.titulo,
                 correoE: noti.correo,
                 descripcion:noti.descripcion,

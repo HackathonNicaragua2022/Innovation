@@ -33,9 +33,11 @@ class ListaDolenciaContainer extends Component {
       return () => dolencias();
     }
 
-    navigateDolencia = () => {
-      this.props.navigation.navigate('Dolencia')
-    }
+    navigateDolencia = (doler) => {
+      this.props.navigation.navigate('Dolencia',{
+        doler: doler
+      }
+    )}
   
     render(){
 

@@ -9,32 +9,24 @@ import {
 
 const Pantalla1 = (props) => {
 
-    const { navegar, cambiarText, nombre } = props;
+    const { data, navegar, cambiarText, nombre } = props;
 
     return (
         <View>
-            <Text>Pantalla 1</Text>
+             <Text style = {{color: 'red'}}>{data.title}</Text>
+            <Text style = {{color: 'red'}}>Sintomas</Text>
             <TextInput
                 onChangeText={cambiarText}
                 defaultValue={nombre}
             />
             <Button
-                title='Ir a pantalla 2'
+                title='Ir a pantalla 1'
                 onPress={
                     () => {
-                        navegar('pantalla2');
+                        navegar('pantalla1');
                     }
                 }
             />
-
-        <Button
-            title='Ir a pantalla 3'
-            onPress={
-                () => {
-                    navegar('pantalla3');
-                }
-            }
-        />
                 </View>
     );
 

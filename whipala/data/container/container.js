@@ -1,35 +1,74 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import App1 from './../component/App1'
-import App2 from './../component/App2'
+import Pantalla1 from './../component/App1';
+import Pantalla2 from './../component/App2';
+import Pantalla3 from './../component/App3';
 
-class ListaFarmaciaContainer extends Component {
+class PantallaContenedor extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
 
+        //inicializamos el estado
         this.state = {
-            navegacion: 'false'            
-        }
+            vista: 'pantalla1',
+            value:''
+        };
+
     }
-      
-    render(){
 
-        const {navegacion} = this.state;
-        if(navegacion === 'false'){
-            return(
-                <App1/>
-            );
+    cambiarPantalla = (pantalla) => {
 
-            
-        } else{
-            return(
-                <App2/>
+        this.setState({
+            vista: pantalla,
+        });
+
+    };
+
+    handledtext = (data) => {
+        this.setState({
+            value: data,
+        });
+    }
+
+    render() {
+
+        const { vista,value } = this.state;
+
+        if(vista === 'pantalla1') {
+            return (
+                <Pantalla1
+                    navegar={this.cambiarPantalla}
+                    cambiarText={this.handledtext}
+                    nombre={value}
+                />
             );
         }
-        
+
+        if(vista === 'pantalla2') {
+            const {value} = this.state;
+            return (
+                <Pantalla2
+                    cambiarPantalla={this.cambiarPantalla}
+                    nombre = {value}
+
+                />
+            );
+        }
+
+        if(vista === 'pantalla3') {
+            const {value} = this.state;
+            return (
+                <Pantalla3
+                    cambiarPantalla={this.cambiarPantalla}
+                    nombre = {value}
+
+                />
+            );
+        }
+
     }
 
 }
 
-export default ListaFarmaciaContainer;
+export default PantallaContenedor;
