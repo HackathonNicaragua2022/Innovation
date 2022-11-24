@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     },
 
     fondoLista2: {
-        width: '95%',
+        width: '95%', 
         backgroundColor: '#ebd192',
         borderRadius: 15,
         justifyContent: 'center',

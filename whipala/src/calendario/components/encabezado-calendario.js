@@ -2,48 +2,39 @@ import React from 'react';
 
 import {
     View,
+    StyleSheet,
     Text,
-    StyleSheet
 } from 'react-native';
 
-const Calendario = () => {
+const App = () => {
     return(
-        <View style = {styles.container}>
-            <View style = {styles.ancho}>
-                <Text style = {styles.titulo}>
-                        Citas Medicas
-                </Text>
-                <Text style = {styles.descripcion}>
-                        Revis tu agenda de citas medicas.
-                </Text>
-            </View>
+        
+        <View style = {styles.efectoSuperior}>
+            <Text
+                style = {styles.indicador}
+            >
+                Citas
+            </Text>
         </View>
     )
 }
 
 const styles = StyleSheet.create({
-    container:{
-        backgroundColor: '#3b6376',
-        height: 125,
-        borderRadius: 40,
-        marginTop: -25,
-        alignItems: 'center'
-    },
-    ancho:{
-        width: '95%',
-        alignItems: 'center'
-    },
-    titulo: {
+  
+    indicador:{
         color: '#fff',
-        marginTop: 40,
+        fontSize: 25,
         fontWeight: 'bold',
-        fontSize: 25
+        marginTop: 20
     },
-    descripcion:{
-        color: '#fff',
-        marginTop: 2,
-        fontSize: 17
-    }
+    efectoSuperior:{
+        backgroundColor: '#60be8c',
+        height: 110,
+        borderRadius: 35,
+        marginTop: -25,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
 })
 
-export default Calendario;
+export default App;
