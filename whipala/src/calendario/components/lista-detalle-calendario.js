@@ -14,7 +14,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 const App = (props) => {
 
-    const {data, headers} = props;
+    const {data, headers, listImage} = props;
 
     return(
         
@@ -25,6 +25,7 @@ const App = (props) => {
                     <View>
                         <DetailList
                             headers = {headers}
+                            listImage = {listImage}
                         />
                     </View>
                     

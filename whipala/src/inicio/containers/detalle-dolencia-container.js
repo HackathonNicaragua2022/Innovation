@@ -4,6 +4,8 @@ import DetalleDolencia from './../components/detalle-dolencias-component';
 import Definicion from './../components/detalle/detalle-definicion';
 import Sintomas from './../components/detalle/detalle-sintomas';
 import Recetas from './../components/detalle/detalle-recetas-naturales';
+import Prevencion from './../components/detalle/detalle-prevencion';
+import Precacion from './../components/detalle/detalle-precaucion';
 
 class ListaFarmaciaContainer extends Component {
 
@@ -15,6 +17,18 @@ class ListaFarmaciaContainer extends Component {
         this.state = {
             dolenciaDatos: {
                 title: dole.titulo,
+                defi: dole.definicion,
+                imagenInfor: dole.imagenInfo,
+                imagenSin: dole.imagenSintoma,
+                in1: dole.info1,
+                in2: dole.info2,
+                in3: dole.info3,
+                in4: dole.info4,
+                in5: dole.info5,
+                prevent: dole.prevencion,
+                consej1: dole.consejo1,
+                consej2: dole.consejo2,
+                consej3: dole.consejo3,
             },
 
             vista: 'pantalla1',
@@ -85,6 +99,20 @@ class ListaFarmaciaContainer extends Component {
                     data = {dolenciaDatos}
                 />
             );
+            
+        }
+
+        if(vista === 'pantalla5') {
+            const {value} = this.state;
+            return (
+                <Prevencion
+                    navegar={this.cambiarPantalla}
+                    cambiarText={this.handledtext}
+                    nombre={value}
+                    data = {dolenciaDatos}
+                />
+            );
+            
         }
 
     }

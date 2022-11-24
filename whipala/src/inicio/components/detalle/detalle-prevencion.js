@@ -25,8 +25,9 @@ const Pantalla1 = (props) => {
                 <Text
                     style = {styles.indicador}
                 >
-                   Síntomas
+                    Prevención
                 </Text>
+
             </View>
 
             <TouchableOpacity
@@ -55,15 +56,32 @@ const Pantalla1 = (props) => {
                     padding: 10
                 }
             }>
-                <ScrollView>
+
 
                 <View style = {styles.cont}>
-                    <Image
-                        source = {{uri: data.imagenSin}}
-                        style = {styles.posterImagen}
-                    />
 
-                    <View style = {{height: 20}}/>
+                  
+                    <View style = {styles.cont1}>
+                        <Image
+                            source = {{uri: data.imagenInfor}}
+                            style = {styles.posterImagen}
+                        />
+
+                        <View>
+                            <Text style = {styles.descripcion}>
+                                {data.prevent}
+                            </Text>
+                        </View>
+                    </View>
+
+                    <View style = {styles.cont2}>
+
+                        <Text style = {styles.suscripcion}>
+                            Consejos Saludables
+                        </Text>
+                    </View>
+
+                    <View style = {{height: 0}}/>
 
                     <View style = {styles.ancho4}>
                         <View style = {styles.porcentaje1_1}>
@@ -85,7 +103,7 @@ const Pantalla1 = (props) => {
                         
                         <View style = {styles.porcentaje2_1}>
                             <Text style = {styles.titulo1}>
-                                {data.in1}
+                                {data.consej1}
                             </Text>                          
                         </View>
                         <View style = {styles.porcentaje2_2}>
@@ -116,15 +134,15 @@ const Pantalla1 = (props) => {
                         
                         <View style = {styles.porcentaje2_1}>
                             <Text style = {styles.titulo1}>
-                                {data.in2}
+                                {data.consej2}
                             </Text>                          
                         </View>
                         <View style = {styles.porcentaje2_2}>
                             <Text></Text>   
                         </View>
+    
                     </View>
 
-                    
                     <View style = {{height: 10}}/>
 
                     <View style = {styles.ancho4}>
@@ -147,78 +165,16 @@ const Pantalla1 = (props) => {
                         
                         <View style = {styles.porcentaje2_1}>
                             <Text style = {styles.titulo1}>
-                                {data.in3}
+                                {data.consej3}
                             </Text>                          
                         </View>
                         <View style = {styles.porcentaje2_2}>
                             <Text></Text>   
                         </View>
+    
                     </View>
 
-                    
-                    <View style = {{height: 10}}/>
-
-                    <View style = {styles.ancho4}>
-                        <View style = {styles.porcentaje1_1}>
-                            <View style = {
-                                {
-                                    backgroundColor: '#60be8c',
-                                    width: 45,
-                                    height: 45,
-                                    borderRadius: 40,
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }
-                            }>   
-                                <Text style = {styles.numero}>
-                                    4
-                                </Text> 
-                            </View>
-                        </View>
-                        
-                        <View style = {styles.porcentaje2_1}>
-                            <Text style = {styles.titulo1}>
-                                {data.in4}
-                            </Text>                          
-                        </View>
-                        <View style = {styles.porcentaje2_2}>
-                            <Text></Text>   
-                        </View>
-                    </View>
-
-                    
-                    <View style = {{height: 10}}/>
-
-                    <View style = {styles.ancho4}>
-                        <View style = {styles.porcentaje1_1}>
-                            <View style = {
-                                {
-                                    backgroundColor: '#60be8c',
-                                    width: 45,
-                                    height: 45,
-                                    borderRadius: 40,
-                                    alignItems: 'center',
-                                    justifyContent: 'center'
-                                }
-                            }>   
-                                <Text style = {styles.numero}>
-                                    5
-                                </Text> 
-                            </View>
-                        </View>
-                        
-                        <View style = {styles.porcentaje2_1}>
-                            <Text style = {styles.titulo1}>
-                                {data.in5}
-                            </Text>                          
-                        </View>
-                        <View style = {styles.porcentaje2_2}>
-                            <Text></Text>   
-                        </View>
-
-                    </View>
-                </View>
-                </ScrollView>
+                </View>   
             </View>
         </ScrollView>        
     );
@@ -240,11 +196,6 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontWeight: 'bold',
         marginTop: 20
-    },
-    sub:{
-        color: '#fff',
-        fontSize: 18,
-        fontWeight: 'bold',
     },
     efectoSuperior:{
         backgroundColor: '#60be8c',
@@ -272,8 +223,7 @@ const styles = StyleSheet.create({
         width: '100%',
         //backgroundColor: 'green',
         alignItems: 'center',
-        justifyContent: 'center',
-        height: '100%'
+        justifyContent: 'center'
     },
     descripcion: {
         color:'#102d3b',
@@ -281,6 +231,26 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         lineHeight: 30,
         marginTop: 20
+    },
+    sub:{
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+
+    //OTR
+
+    cont1:{
+        width: '100%',
+        //backgroundColor: 'green',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    cont2:{
+        width: '100%',
+        //backgroundColor: 'green',
+        height: 40,
+        marginTop: 40
     },
     ancho4:{
         width: '100%',
@@ -312,6 +282,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#fff'
     },
+    suscripcion:{
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: '#102d3b',
+    }
 })
 
 

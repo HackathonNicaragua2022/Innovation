@@ -39,11 +39,11 @@ const BackDrop = ({scrollX, imagenes}) => {
             }
         >
             {
-                imagenes.map((imagen, index) => {
+                imagenes.map((imagen, key) => {
                     const inputRange = [
-                        (index - 1) * ANCHO_CONTENEDOR,
-                        index * ANCHO_CONTENEDOR,
-                        (index + 1) * ANCHO_CONTENEDOR,
+                        (key - 1) * ANCHO_CONTENEDOR,
+                        key * ANCHO_CONTENEDOR,
+                        (key + 1) * ANCHO_CONTENEDOR,
                     ];
 
                     const opacity = scrollX.interpolate({
@@ -54,7 +54,7 @@ const BackDrop = ({scrollX, imagenes}) => {
                     return (
                         <View>
                             <Animated.Image
-                                key={index}
+                                key={key}
                                 source={{ uri: imagen.imagenDolencia }}
                                     style={[
                                         { 
