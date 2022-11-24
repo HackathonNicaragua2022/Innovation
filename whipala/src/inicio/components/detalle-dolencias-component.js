@@ -100,7 +100,7 @@ const DetalleDolencia = (props) =>{
                                 <TouchableOpacity
                                     onPress={
                                         () => {
-                                            navegar('pantalla2');
+                                            navegar('pantalla6');
                                         }
                                     }
                                 >

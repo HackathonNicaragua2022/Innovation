@@ -53,6 +53,11 @@ const ListaFarmacia = (props) => {
                 />
             </View>
 
+            <View style ={{backgroundColor: 'red', height: 50,
+        width: 50}}>
+
+            </View>
+
         </SafeAreaView>
 
     );

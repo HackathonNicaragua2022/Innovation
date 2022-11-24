@@ -29,6 +29,16 @@ class ListaFarmaciaContainer extends Component {
                 consej1: dole.consejo1,
                 consej2: dole.consejo2,
                 consej3: dole.consejo3,
+                preca: dole.imagenPrecaucion,
+                descripPreca: dole.descripcionPrecaucion,
+                prepa1: dole.preparacion1,
+                prepa2: dole.preparacion2,
+                prepa3: dole.preparacion3,
+                prepa4: dole.preparacion4,
+                ingre: dole.ingrediente,
+                ingre1: dole.ingrediente1,
+                ingre2: dole.ingrediente2,
+                titleReceta: dole.tituloReceta,
             },
 
             vista: 'pantalla1',
@@ -112,9 +122,20 @@ class ListaFarmaciaContainer extends Component {
                     data = {dolenciaDatos}
                 />
             );
-            
         }
 
+        if(vista === 'pantalla6') {
+            const {value} = this.state;
+            return (
+                <Precacion
+                    navegar={this.cambiarPantalla}
+                    cambiarText={this.handledtext}
+                    nombre={value}
+                    data = {dolenciaDatos}
+                />
+            );
+            
+        }
     }
 
 }
