@@ -13,7 +13,10 @@ import {
     TouchableOpacity
 } from 'react-native';
 
+import Publicaciones from './../containers/lista-publiciones-container'
+
 import LinearGradient from 'react-native-linear-gradient';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const width = Dimensions.get("window").width;
 const heigth = Dimensions.get("window").height;
@@ -85,6 +88,7 @@ const ListaDolencia = (props) => {
     const scrollX = React.useRef(new Animated.Value(0)).current;
 
     return(
+        <ScrollView>
         <SafeAreaView style = {styles.container}>
 
             <BackDrop 
@@ -157,7 +161,12 @@ const ListaDolencia = (props) => {
                     }
                 }
             />
+
+            
         </SafeAreaView>
+
+        <Publicaciones/>
+        </ScrollView>
     )
 }
 

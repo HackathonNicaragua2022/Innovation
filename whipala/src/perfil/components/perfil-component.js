@@ -15,8 +15,8 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Redes from './redes-component';
 import Suscripcion from './suscripcion-component';
 
-const ListaNotificacion = () => { 
-
+const ListaNotificacion = (props) => { 
+        const {navigateFarmaciaDetalle} = props;
     return(
         <ScrollView style = {styles.fondoFlatList}>
 
@@ -45,11 +45,11 @@ const ListaNotificacion = () => {
 
                             <View style = {styles.porcentaje2}>
                                 <Text style = {styles.titulo}>
-                                Kevin Castro
+                                ---------
                                 </Text>
 
                                 <Text style = {styles.eti}>
-                                    kc83208@gmail.com
+                                    -----@gmail.com
                                 </Text>
                             </View>
 
@@ -66,6 +66,37 @@ const ListaNotificacion = () => {
 
             </TouchableOpacity>
 
+            <Text style = {styles.suscripcion}>
+                Area de chat
+            </Text>
+
+            <TouchableOpacity
+                onPress={navigateFarmaciaDetalle}
+            >
+        
+                <View style = {{width: '100%', height: 80, marginLeft: 10}}>
+
+                    <View style = {styles.fondoLista2}>
+
+                        <View style = {styles.direccion2}>
+                            <View style = {styles.porcentaje1_1}>
+                                <View style = {styles.icono2}>
+                                    <Icon name= 'person-outline' size={20} color={'#fff'}></Icon>
+                                </View>
+                            </View>
+
+                            <View style = {styles.porcentaje2_1}>
+                                <Text style = {styles.titulo1}>
+                                     Chat-Box
+                                </Text>
+                            </View>
+                        </View>
+                    
+                    </View>
+
+                </View>
+
+            </TouchableOpacity>
             <Suscripcion/>
             <Redes/>
 
@@ -154,6 +185,65 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
+
+    fondo: {
+        alignItems: 'center',
+        marginTop: 10,
+    },
+
+    fondoLista2: {
+        width: '95%', 
+        backgroundColor: '#ebd192',
+        borderRadius: 15,
+        justifyContent: 'center',
+        flexDirection: 'column',
+        alignContent: 'center',
+        alignItems: 'center',
+    },
+    separador: {
+        width: 15
+    },
+
+    fondoFlatList:{
+        flex: 1,
+        backgroundColor: '#f7f5fc'
+    },   
+
+    icono2:{
+        width: 35,
+        height: 35,
+        backgroundColor: '#544014',
+        borderRadius: 40,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    direccion2: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '95%',
+        alignItems: 'center',
+        height: 50
+        //backgroundColor: 'blue'
+    },
+    titulo1: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#544014'
+    },
+    porcentaje1_1: {
+        width: '15%',
+    },
+
+    porcentaje2_1:{
+        width: '90%',
+    },
+    suscripcion:{
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: '#102d3b',
+        marginTop: 20,
+        paddingLeft: 10
+    }
 })
 
 export default ListaNotificacion;

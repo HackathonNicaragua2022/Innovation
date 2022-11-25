@@ -55,7 +55,7 @@ const Pantalla1 = (props) => {
                     width: '100%', 
                     padding: 10
                 }
-            }>
+            }> 
 
                 <View style = {styles.cont}>
                     <Image

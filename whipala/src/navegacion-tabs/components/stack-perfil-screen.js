@@ -2,6 +2,8 @@ import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import Perfil from './../../perfil/containers/perfil-container'
+import Chat from './../../perfil/containers/bienvenida-container';
+import Consulta from './../../perfil/containers/consulta-container';
 
 const PerfilStack = createStackNavigator();
 
@@ -15,7 +17,22 @@ const PerfilStackStackScreen = () => {
                     headerShown: false
                 }} 
             />
+            <PerfilStack.Screen
+                name = "Chat"
+                component = { Chat }
+                options = {{
+                    headerShown: false
+            }} 
+            />
+            <PerfilStack.Screen
+                name = "Consulta"
+                component = { Consulta }
+                options = {{
+                    headerShown: false
+            }} 
+            />
         </PerfilStack.Navigator>
+        
     )
 }
 

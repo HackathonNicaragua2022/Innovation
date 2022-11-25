@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import ListaNotificacion from './../components/perfil-component';
+import ListaNotificacion from './../components/chat/consulta';
 
 class ListaNotificacionContainer extends Component {
 
@@ -8,15 +8,11 @@ class ListaNotificacionContainer extends Component {
         super(props);
     }
 
-    navigateFarmaciaDetalle = () => {
-        this.props.navigation.navigate('Chat')
-      }
-
 
     render(){
         return(
             <ListaNotificacion
-            navigateFarmaciaDetalle= {this.navigateFarmaciaDetalle}/>
+            />
         );
         
     }

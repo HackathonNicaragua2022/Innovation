@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import firestore from '@react-native-firebase/firestore';
 
-import Calendario from './../components/calendario-component';
+import Calendario from './../components/medicos-componente';
 
 class ListaFarmaciaContainer extends Component {
 
@@ -13,27 +13,6 @@ class ListaFarmaciaContainer extends Component {
             dataTop: []
             
         }
-    }
-
-    loadData = () => {
-        const calendario = firestore().collection('lista-proxima-cita').onSnapshot(querySnapshot =>{
-    
-        const listaCalendario = [];
-    
-          querySnapshot.forEach(documentSnapshot =>{
-            listaCalendario.push({
-              ...documentSnapshot.data(),
-              key: documentSnapshot.id,
-            })
-          })
-
-          this.setState({
-            data: listaCalendario
-          })
-
-        })
-    
-        return () => calendario();
     }
 
     loadDataD = () => {
@@ -62,16 +41,6 @@ class ListaFarmaciaContainer extends Component {
           farmacia: farmacia
         })
       } 
-
-      navigateCita = () => {
-        this.props.navigation.navigate('Cita')
-      } 
-
-      navigateCalendar = (detalle) => {
-        this.props.navigation.navigate('PantallaCalendario', {
-          datalle: detalle
-        }
-      )} 
       
     render(){
 
@@ -79,18 +48,14 @@ class ListaFarmaciaContainer extends Component {
 
         return(
             <Calendario
-                data = {data} 
                 dataTop = {dataTop} 
                 navigateFarmaciaDetalle = {this.navigateFarmaciaDetalle}
-                navigateCita = {this.navigateCita}
-                navigateCalendar = {this.navigateCalendar}
             />
         );
         
     }
 
     componentDidMount(){
-        this.loadData()
         this.loadDataD()
       }
 }

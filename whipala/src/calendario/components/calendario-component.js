@@ -16,7 +16,13 @@ import Encabezado from './../components/encabezado-calendario';
 
 const ListaFarmacia = (props) => { 
 
-    const { data , navigateFarmaciaDetalle, dataTop} = props;
+    const { 
+        data, 
+        navigateFarmaciaDetalle,
+        dataTop, 
+        navigateCita,
+        navigateCalendar
+    } = props;
 
     return(
         <SafeAreaView style = {styles.fondoFlatList}>
@@ -31,7 +37,7 @@ const ListaFarmacia = (props) => {
                     showsHorizontalScrollIndicator = {false}
                     ListEmptyComponent = {() => <Text>Componente de texto</Text>}
                     renderItem = {
-                        ({item}) => <Element item = {item} onPress = {() => { navigateFarmaciaDetalle(item); }}/>
+                        ({item}) => <Element item = {item} onPress = {() => { navigateCalendar(item); }}/>
                     }
                     ItemSeparatorComponent = {() => <View style = {styles.separador}/>}
                 />
@@ -53,10 +59,32 @@ const ListaFarmacia = (props) => {
                 />
             </View>
 
-            <View style ={{backgroundColor: 'red', height: 50,
-        width: 50}}>
+            <TouchableOpacity
+                style ={{
+                    backgroundColor: '#60be8c', 
+                    height: 45,
+                    width: 200, 
+                    marginTop:690, 
+                    marginLeft: 110,
+                    position: 'absolute',
+                    borderRadius: 80,
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
 
-            </View>
+                onPress = {navigateCita}
+            >
+                <Text
+                    style = {{
+                        fontSize: 20,
+                        fontWeight: 'bold',
+                        color: '#fff'
+                    }}
+                >
+                    Nueva Cita
+                </Text>
+            </TouchableOpacity>
+
 
         </SafeAreaView>
 
@@ -66,7 +94,7 @@ const ListaFarmacia = (props) => {
 
 const Element = ( props ) => {
 
-    const { item } = props;
+    const { item , onPress} = props;
     
     return(
 
@@ -123,6 +151,7 @@ const Element = ( props ) => {
                         width: '100%',
                         alignItems: 'center',
                     }}
+                    onPress={onPress}
                 >
                     <View style = {styles.efecto}/>
                     <View style = {{flexDirection: 'row'}}>
