@@ -31,7 +31,7 @@ const App = (props) => {
 
                 <View style = {styles.fondoImage}>
                     <Image
-                        source = {require('./../../../assets/enfermedad-autoinmune.png')}
+                        source = {require('./../../../assets/1.png')}
                         style = {styles.image}
                     />
                 </View>

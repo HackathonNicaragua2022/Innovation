@@ -77,7 +77,7 @@ const Login = (props) => {
             fontWeight: 'bold',
             marginVertical: 20,
           }}>
-          Login
+          
         </Text>
         <View
           style={{
@@ -111,7 +111,7 @@ const Login = (props) => {
            <TextInput
                 {...props}
                 style={{borderRadius: 100, color: darkGreen, paddingHorizontal: 10, width: '78%', backgroundColor: 'rgb(220,220, 220)', marginVertical: 10}}
-                placeholderTextColor='lklkmkl'></TextInput>
+                placeholderTextColor='lklkmkl' secureTextEntry={true}></TextInput>
           <View
             style={{alignItems: 'flex-end', width: '78%', paddingRight: 16, marginBottom: 200}}>
             <Text style={{color: darkGreen, fontWeight: 'bold', fontSize: 16}}>
