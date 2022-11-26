@@ -56,11 +56,12 @@ export default App;*/
 
 
 import React from 'react';
-import {View, Text, Touchable, TouchableOpacity} from 'react-native';
+import {View, Text, Touchable,TextInput, TouchableOpacity} from 'react-native';
 import Background from './Background';
 import Btn from './Btn';
 import {darkGreen} from './Constants';
 import Field from './Field';
+
 
 const Login = (props) => {
 
@@ -87,8 +88,8 @@ const Login = (props) => {
             paddingTop: 100,
             alignItems: 'center',
           }}>
-          <Text style={{fontSize: 40, color: darkGreen, fontWeight: 'bold'}}>
-            Welcome Back
+          <Text style={{fontSize: 35, color: darkGreen, fontWeight: 'bold'}}>
+            Bienvenido a Whipala
           </Text>
           <Text
             style={{
@@ -97,17 +98,24 @@ const Login = (props) => {
               fontWeight: 'bold',
               marginBottom: 20,
             }}>
-            Login to your account
+            Entra en tu cuenta
           </Text>
-          <Field
-            placeholder="Email / Username"
-            keyboardType={'email-address'}
-          />
-          <Field placeholder="Password" secureTextEntry={true} />
+
+          <Text style = {{color: 'green', marginLeft: -230}}>Correo Electronico</Text>
+          <TextInput
+              {...props}
+              style={{borderRadius: 100, color: darkGreen, paddingHorizontal: 10, width: '78%', backgroundColor: 'rgb(220,220, 220)', marginVertical: 10}}
+              placeholderTextColor='efk'></TextInput>
+
+          <Text style = {{color: 'green', marginLeft: -280}}>Contraseña</Text>
+           <TextInput
+                {...props}
+                style={{borderRadius: 100, color: darkGreen, paddingHorizontal: 10, width: '78%', backgroundColor: 'rgb(220,220, 220)', marginVertical: 10}}
+                placeholderTextColor='lklkmkl'></TextInput>
           <View
             style={{alignItems: 'flex-end', width: '78%', paddingRight: 16, marginBottom: 200}}>
             <Text style={{color: darkGreen, fontWeight: 'bold', fontSize: 16}}>
-              Forgot Password ?
+              Olvidaste tu contraseña ?
             </Text>
           </View>
                 <TouchableOpacity
