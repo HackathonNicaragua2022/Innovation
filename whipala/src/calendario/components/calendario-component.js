@@ -21,7 +21,8 @@ const ListaFarmacia = (props) => {
         navigateFarmaciaDetalle,
         dataTop, 
         navigateCita,
-        navigateCalendar
+        navigateCalendar,
+        navigateCalendarCompleto
     } = props;
 
     return(
@@ -37,7 +38,7 @@ const ListaFarmacia = (props) => {
                     showsHorizontalScrollIndicator = {false}
                     ListEmptyComponent = {() => <Text>Componente de texto</Text>}
                     renderItem = {
-                        ({item}) => <Element item = {item} onPress = {() => { navigateCalendar(item); }}/>
+                        ({item}) => <Element item = {item} onPress = {() => {navigateCalendarCompleto(item)}}/>
                     }
                     ItemSeparatorComponent = {() => <View style = {styles.separador}/>}
                 />
@@ -170,7 +171,6 @@ const Element = ( props ) => {
             </View>
 
         </View>
-
     );
 }
 

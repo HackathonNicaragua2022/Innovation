@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import ListaNotificacion from './../components/chat/consulta';
+import ListaNotificacion from './../components/chat/resultado';
 
 class ListaNotificacionContainer extends Component {
 
@@ -8,15 +8,9 @@ class ListaNotificacionContainer extends Component {
         super(props);
     }
 
-    onPress = () => {
-        this.props.navigation.navigate('Resultado')
-      }
-
-
     render(){
         return(
             <ListaNotificacion
-            onPress = {this.onPress}
             />
         );
         

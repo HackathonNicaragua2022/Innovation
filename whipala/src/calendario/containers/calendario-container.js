@@ -72,6 +72,12 @@ class ListaFarmaciaContainer extends Component {
           datalle: detalle
         }
       )} 
+
+      navigateCalendarCompleto = (detalle) => {
+        this.props.navigation.navigate('CalendarioDetalleX', {
+          datalle: detalle
+        }
+      )} 
       
     render(){
 
@@ -84,6 +90,7 @@ class ListaFarmaciaContainer extends Component {
                 navigateFarmaciaDetalle = {this.navigateFarmaciaDetalle}
                 navigateCita = {this.navigateCita}
                 navigateCalendar = {this.navigateCalendar}
+                navigateCalendarCompleto = {this.navigateCalendarCompleto}
             />
         );
         

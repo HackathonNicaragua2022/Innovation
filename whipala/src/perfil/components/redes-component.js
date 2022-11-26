@@ -17,16 +17,16 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const ListaNotificacion = () => { 
 
     const handleFace = async ()=> {
-        Linking.openURL('https://www.facebook.com/');
+        Linking.openURL('https://www.facebook.com/profile.php?id=100086900572914');
     }
     const handleInsta = async ()=> {
-        Linking.openURL('https://www.instagram.com/');
+        Linking.openURL('https://www.instagram.com/whipala_app/');
     }
     const handleYouTu = async ()=> {
-        Linking.openURL('https://www.youtube.com/');
+        Linking.openURL('https://www.youtube.com/watch?v=QyG10v5jmSU');
     }
     const handleWhipa = async ()=> {
-        Linking.openURL('https://www.youtube.com/');
+        Linking.openURL('https://cuentaalmacenamient.z13.web.core.windows.net/');
     }
 
     return(

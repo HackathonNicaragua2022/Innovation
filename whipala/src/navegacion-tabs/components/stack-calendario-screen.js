@@ -1,16 +1,18 @@
 import * as React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator  } from '@react-navigation/stack';
 
 import Calendario from './../../calendario/containers/calendario-container';
 import CalendarioDetalle from './../../calendario/containers/lista-detalle-calendario-container';
 import Cita from './../../calendario/containers/medicos-container';
 import PantallaCalendario from '../../calendario/containers/pantalla-calendario-container';
 
+import CalendarioDetalleX from '../../calendario/containers/calendario-detalle-container'
+
 const CalendarioStack = createStackNavigator();
 
 const CalendarioStackScreen = () => {
     return(
-        <CalendarioStack.Navigator>
+        <CalendarioStack.Navigator> 
             <CalendarioStack.Screen
                 name = "Citas"
                 component = { Calendario }
@@ -32,14 +34,15 @@ const CalendarioStackScreen = () => {
                     headerShown: false
                 }} 
             />
+
             <CalendarioStack.Screen
-                name = "PantallaCalendario"
-                component = { PantallaCalendario }
-                options = {{
-                    headerShown: false
-            }} 
-            />
-        </CalendarioStack.Navigator>
+                name = "CalendarioDetalleX"
+                    component = { CalendarioDetalleX }
+                    options = {{
+                        headerShown: false
+                }} 
+                />
+            </CalendarioStack.Navigator>
     )
 }
 

@@ -31,7 +31,7 @@ const ListaNotificacion = () => {
                         <View style = {styles.direccion2}>
                             <View style = {styles.porcentaje1_1}>
                                 <View style = {styles.icono2}>
-                                    <Icon name= 'person-outline' size={20} color={'#fff'}></Icon>
+                                    <Icon name= 'journal' size={20} color={'#fff'}></Icon>
                                 </View>
                             </View>
 

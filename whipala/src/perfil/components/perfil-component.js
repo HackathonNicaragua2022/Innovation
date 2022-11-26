@@ -45,11 +45,11 @@ const ListaNotificacion = (props) => {
 
                             <View style = {styles.porcentaje2}>
                                 <Text style = {styles.titulo}>
-                                ---------
+                                Joel Martinez
                                 </Text>
 
                                 <Text style = {styles.eti}>
-                                    -----@gmail.com
+                                    joelmartinez22@gmail.com
                                 </Text>
                             </View>
 
@@ -81,13 +81,13 @@ const ListaNotificacion = (props) => {
                         <View style = {styles.direccion2}>
                             <View style = {styles.porcentaje1_1}>
                                 <View style = {styles.icono2}>
-                                    <Icon name= 'person-outline' size={20} color={'#fff'}></Icon>
+                                    <Icon name= 'people' size={20} color={'#fff'}></Icon>
                                 </View>
                             </View>
 
                             <View style = {styles.porcentaje2_1}>
                                 <Text style = {styles.titulo1}>
-                                     Chat-Box
+                                     ChatBot
                                 </Text>
                             </View>
                         </View>

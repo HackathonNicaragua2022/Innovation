@@ -1,45 +1,51 @@
 import React, {Component} from 'react';
 
-import DetalleDolencia from './../components/detalle-dolencias-component';
-import Definicion from './../components/detalle/detalle-definicion';
-import Sintomas from './../components/detalle/detalle-sintomas';
-import Recetas from './../components/detalle/detalle-recetas-naturales';
-import Prevencion from './../components/detalle/detalle-prevencion';
-import Precacion from './../components/detalle/detalle-precaucion';
+import DetalleDolencia from './../components/detalle-plantas-component';
+import Definicion from './../components/detalle-planta/detalle-descripcion';
+import Sintomas from './../components/detalle-planta/beneficios';
+import Recetas from './../components/detalle-planta/recetas-naturales';
+import Curiosidad from './../components/detalle-planta/curiocidades-planta';
+import Precacion from './../components/detalle-planta/precauciones';
 
 class ListaFarmaciaContainer extends Component {
 
     constructor(props){
         super(props);
 
-       const { doler: dole } = this.props.route.params;
+       const { planta: plan } = this.props.route.params;
 
         this.state = {
             dolenciaDatos: {
-                title: dole.titulo,
-                defi: dole.definicion,
-                imagenInfor: dole.imagenInfo,
-                imagenSin: dole.imagenSintoma,
-                in1: dole.info1,
-                in2: dole.info2,
-                in3: dole.info3,
-                in4: dole.info4,
-                in5: dole.info5,
-                prevent: dole.prevencion,
-                consej1: dole.consejo1,
-                consej2: dole.consejo2,
-                consej3: dole.consejo3,
-                preca: dole.imagenPrecaucion,
-                descripPreca: dole.descripcionPrecaucion,
-                prepa1: dole.preparacion1,
-                prepa2: dole.preparacion2,
-                prepa3: dole.preparacion3,
-                prepa4: dole.preparacion4,
-                ingre: dole.ingrediente,
-                ingre1: dole.ingrediente1,
-                ingre2: dole.ingrediente2,
-                titleReceta: dole.tituloReceta,
-                dosis: dole.dosis
+                title: plan.titulo,
+                descrip: plan.descripcion,
+                imagenDescrip: plan.imagenDescripcion,
+                imagenBen: plan.imagenBeneficio,
+                ben1: plan.beneficio1,
+                ben2: plan.beneficio2,
+                ben3: plan.beneficio3,
+                ben4: plan.beneficio4,
+                ben5: plan.beneficio5,
+                ben6: plan.beneficio6,
+                ben7: plan.beneficio7,
+                ben8: plan.beneficio8,
+                ben9: plan.beneficio9,
+                ben10: plan.beneficio10,
+                ben11: plan.beneficio11,
+                titl: plan.tituloReceta,
+                ingre1: plan.ingrediente1,
+                ingre2: plan.ingrediente2,
+                recet1: plan.receta1,
+                recet2: plan.receta2,
+                imagRecet: plan.imagenReceta,
+                imagenCuri: plan.imagenCuriosidad,
+                descripC: plan.descripcionCuriosidad,
+                imagenPre: plan.imagenPrecaucion,
+                preca1: plan.precaucion1,
+                preca2: plan.precaucion2,
+                preca3: plan.precaucion3,
+                preca4: plan.precaucion4,
+                preca5: plan.precaucion5,
+                dosis: plan.dosis,
             },
 
             vista: 'pantalla1',
@@ -116,7 +122,7 @@ class ListaFarmaciaContainer extends Component {
         if(vista === 'pantalla5') {
             const {value} = this.state;
             return (
-                <Prevencion
+                <Curiosidad
                     navegar={this.cambiarPantalla}
                     cambiarText={this.handledtext}
                     nombre={value}

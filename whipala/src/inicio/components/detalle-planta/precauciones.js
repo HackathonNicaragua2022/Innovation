@@ -25,10 +25,8 @@ const Pantalla1 = (props) => {
                 <Text
                     style = {styles.indicador}
                 >
-                    Recetas Medicas
+                   Precaución
                 </Text>
-                
-
             </View>
 
             <TouchableOpacity
@@ -57,51 +55,15 @@ const Pantalla1 = (props) => {
                     padding: 10
                 }
             }>
-
+                <ScrollView>
 
                 <View style = {styles.cont}>
+                    <Image
+                        source = {{uri: data.imagenPre}}
+                        style = {styles.posterImagen}
+                    />
 
-                  
-                    <View style = {styles.cont1}>
-                        <Image
-                            source = {{uri: data.imagenInfor}}
-                            style = {styles.posterImagen}
-                        />
-
-                        <Text style = {styles.titulo021}>
-                            Recetas Naturales
-                        </Text>  
-
-                        <View style = {{height:30}}/>
-
-                        <View style = {styles.ancho5}>
-
-                                <View style = {styles.porcentaje2_1}>
-                                    <Text style = {styles.titulo02}>
-                                        {data.titleReceta}
-                                    </Text>  
-                                    <Text style = {styles.titulo01}>
-                                           -{data.ingre}
-                                    </Text> 
-                                    <Text style = {styles.titulo01}>
-                                           -{data.ingre1}
-                                    </Text> 
-                                    <Text style = {styles.titulo01}>
-                                           -{data.ingre2}
-                                    </Text>                         
-                                </View>
-                               
-                            </View>
-                        </View>
-
-                    <View style = {styles.cont2}>
-
-                        <Text style = {styles.suscripcion}>
-                            Preparación
-                        </Text>
-                    </View>
-
-                    <View style = {{height: 0}}/>
+                    <View style = {{height: 20}}/>
 
                     <View style = {styles.ancho4}>
                         <View style = {styles.porcentaje1_1}>
@@ -123,7 +85,7 @@ const Pantalla1 = (props) => {
                         
                         <View style = {styles.porcentaje2_1}>
                             <Text style = {styles.titulo1}>
-                                {data.prepa1}
+                                {data.preca1}
                             </Text>                          
                         </View>
                         <View style = {styles.porcentaje2_2}>
@@ -154,15 +116,15 @@ const Pantalla1 = (props) => {
                         
                         <View style = {styles.porcentaje2_1}>
                             <Text style = {styles.titulo1}>
-                                {data.prepa2}
+                                {data.preca2}
                             </Text>                          
                         </View>
                         <View style = {styles.porcentaje2_2}>
                             <Text></Text>   
                         </View>
-    
                     </View>
 
+                    
                     <View style = {{height: 10}}/>
 
                     <View style = {styles.ancho4}>
@@ -185,15 +147,15 @@ const Pantalla1 = (props) => {
                         
                         <View style = {styles.porcentaje2_1}>
                             <Text style = {styles.titulo1}>
-                                {data.prepa3}
+                                {data.preca3}
                             </Text>                          
                         </View>
                         <View style = {styles.porcentaje2_2}>
                             <Text></Text>   
                         </View>
-    
                     </View>
 
+                    
                     <View style = {{height: 10}}/>
 
                     <View style = {styles.ancho4}>
@@ -216,7 +178,38 @@ const Pantalla1 = (props) => {
                         
                         <View style = {styles.porcentaje2_1}>
                             <Text style = {styles.titulo1}>
-                                {data.prepa4}
+                                {data.preca4}
+                            </Text>                          
+                        </View>
+                        <View style = {styles.porcentaje2_2}>
+                            <Text></Text>   
+                        </View>
+                    </View>
+
+                    
+                    <View style = {{height: 10}}/>
+
+                    <View style = {styles.ancho4}>
+                        <View style = {styles.porcentaje1_1}>
+                            <View style = {
+                                {
+                                    backgroundColor: '#60be8c',
+                                    width: 45,
+                                    height: 45,
+                                    borderRadius: 40,
+                                    alignItems: 'center',
+                                    justifyContent: 'center'
+                                }
+                            }>   
+                                <Text style = {styles.numero}>
+                                    5
+                                </Text> 
+                            </View>
+                        </View>
+                        
+                        <View style = {styles.porcentaje2_1}>
+                            <Text style = {styles.titulo1}>
+                                {data.preca5}
                             </Text>                          
                         </View>
                         <View style = {styles.porcentaje2_2}>
@@ -224,24 +217,8 @@ const Pantalla1 = (props) => {
                         </View>
 
                     </View>
-
-                    <View style = {styles.ancho7}>
-
-                            <View style = {{width: '20%'}}>
-                                <Text style = {styles.titulo021}>
-                                 Dosis: 
-                                </Text> 
-                            </View>
-
-                            <View style = {{width: '90%'}}>
-                                <Text style = {styles.titulo022}>
-                                    {data.dosis}
-                                </Text>
-                            </View>
-                         
-                    </View>
-
-                </View>   
+                </View>
+                </ScrollView>
             </View>
         </ScrollView>        
     );
@@ -264,6 +241,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginTop: 20
     },
+    sub:{
+        color: '#fff',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
     efectoSuperior:{
         backgroundColor: '#60be8c',
         height: 110,
@@ -283,14 +265,15 @@ const styles = StyleSheet.create({
         marginLeft: 7
     },
     posterImagen:{
-        height: 300,
+        height: 200,
         width: 300
     },
     cont:{
         width: '100%',
         //backgroundColor: 'green',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        height: '100%'
     },
     descripcion: {
         color:'#102d3b',
@@ -299,58 +282,13 @@ const styles = StyleSheet.create({
         lineHeight: 30,
         marginTop: 20
     },
-    sub:{
-        color: '#fff',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-
-    //OTR
-
-    cont1:{
-        width: '100%',
-        //backgroundColor: 'green',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    cont2:{
-        width: '100%',
-        //backgroundColor: 'green',
-        height: 40,
-        marginTop: 20
-    },
     ancho4:{
         width: '100%',
-        height: 90,
+        height: 70,
         borderRadius: 15,
         backgroundColor: '#fff',
         flexDirection: 'row',
         justifyContent: 'space-between',
-    },
-    ancho5:{
-        width: '100%',
-        height: 180,
-        borderRadius: 15,
-        backgroundColor: '#fff',
-        justifyContent: 'space-between',
-        padding: 10
-    },
-
-    ancho6:{
-        width: '100%',
-        height: 40,
-        borderRadius: 15,
-        justifyContent: 'space-between',
-        padding: 10,
-        marginTop: 15
-    },
-
-    ancho7:{
-        width: '100%',
-        justifyContent: 'space-between',
-        flexDirection: 'row',
-        marginTop: 20,
-        alignItems: 'center'
     },
     porcentaje1_1: {
         width: '15%',
@@ -369,35 +307,11 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: '#102d3b'
     },
-    titulo01: {
-        fontSize: 18,
-        color: '#102d3b',
-        marginLeft: 10
-    },
-    titulo02: {
-        fontSize: 20,
-        color: '#102d3b',
-        fontWeight: 'bold'
-    },
-    titulo021: {
-        fontSize: 20,
-        color: '#102d3b',
-        fontWeight: 'bold',
-    },
-    titulo022: {
-        fontSize: 16,
-        color: '#102d3b',
-    },
     numero: {
         fontSize: 20,
         fontWeight: 'bold',
         color: '#fff'
     },
-    suscripcion:{
-        fontSize: 22,
-        fontWeight: 'bold',
-        color: '#102d3b',
-    }
 })
 
 

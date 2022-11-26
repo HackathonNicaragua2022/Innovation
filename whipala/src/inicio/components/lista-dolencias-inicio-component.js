@@ -10,13 +10,12 @@ import {
     SafeAreaView,
     Animated,
     Text,
-    TouchableOpacity
+    TouchableOpacity,
+    ScrollView
 } from 'react-native';
 
-import Publicaciones from './../containers/lista-publiciones-container'
-
+import Publicaciones from './../containers/lista-publiciones-container';
 import LinearGradient from 'react-native-linear-gradient';
-import { ScrollView } from 'react-native-gesture-handler';
 
 const width = Dimensions.get("window").width;
 const heigth = Dimensions.get("window").height;
@@ -83,7 +82,7 @@ const BackDrop = ({scrollX, imagenes}) => {
 
 const ListaDolencia = (props) => {
 
-    const {data, navigateDolencia} = props;
+    const {data, navigateDolencia, dataT, navigatePlantas} = props;
 
     const scrollX = React.useRef(new Animated.Value(0)).current;
 
@@ -113,7 +112,7 @@ const ListaDolencia = (props) => {
                 decelerationRate = { 0 }
                 snapToInterval = { ANCHO_CONTENEDOR }
                 scrollEventThrottle = { 16 }
-                keyExtractor = {(item) => item.key}
+                keyExtractor={(item, index) => index.toString()} 
                 renderItem = {
                     ({item, index}) => {
 
@@ -165,16 +164,76 @@ const ListaDolencia = (props) => {
             
         </SafeAreaView>
 
+
+        <View style = {styles.fondoFlatList}>
+
+            <Text
+                style = {styles.indicador}
+            >
+                Plantas Medicinales
+            </Text>
+
+            <View >              
+                <FlatList
+                    data = {dataT}
+                    horizontal = {true}
+                    showsHorizontalScrollIndicator = {false}
+                    ListEmptyComponent = {() => <Text>Componente de texto</Text>}
+                    keyExtractor={(item, index) => index.toString()} 
+                    renderItem = {
+                        ({item}) => <Elemento item = {item} onPress = {() => { navigatePlantas(item); }}/>
+                    }
+                    ItemSeparatorComponent = {() => <View style = {styles.separador}/>}
+                />
+            </View>
+        </View>
+
         <Publicaciones/>
         </ScrollView>
     )
 }
 
+const Elemento = ( props ) => {
+
+    const { item, onPress } = props;
+    
+    return(
+
+        <TouchableOpacity
+             onPress={onPress}
+        >
+        
+            <View style = {styles.fondo}>
+
+                <View style = {styles.fondoLista}>
+
+                    <Image
+                        source = {{uri: item.imagenPlanta}}
+                        style = {styles.fondoseccion}
+                    /> 
+                    
+                    <View style = {styles.margen}>
+
+                    <View style = {styles.efecto}>
+                        </View>
+                            <Text style = {styles.info}>{item.titulo}</Text>
+                        </View>
+                    <View style = {styles.separadorFin}/>
+
+                </View>
+
+            </View>
+
+        </TouchableOpacity>
+    );
+}
+
+
 const styles = StyleSheet.create({
 
     //Primera seccion
     container: {
-        flex: 1,
+        //flex: 1,
         //backgroundColor: '#102d3b',
         backgroundColor: '#f7f5fc',
         alignItems: 'center',
@@ -217,6 +276,61 @@ const styles = StyleSheet.create({
         width,
         position: 'absolute',
         top: 0,
+    },
+
+    fondo: {
+        alignItems: 'center',
+        marginTop: 10,
+    },
+
+    fondoLista: {
+        width: '100%',
+    },
+
+    fondoseccion: {
+        width: 250,
+        height: 200,
+        borderRadius: 20,
+        //borderWidth: 3,
+        //borderColor: '#3b6376'
+    },
+
+    separador: {
+        width: 15
+    },
+
+    fondoFlatList:{
+        flex: 1,
+        padding: 10,
+        backgroundColor: '#f7f5fc'
+    },   
+    efecto:{
+        backgroundColor: 'black',
+        width: 250,
+        height: 45,
+        opacity: 0.5,
+        marginTop: 2,
+        borderBottomRightRadius: 20,
+        borderBottomLeftRadius: 20,
+    },
+
+    separadorFin:{
+        height: 25
+    },
+    margen:{
+        marginTop: -48
+    },
+    info:{
+        color: 'white', 
+        fontSize: 20, 
+        fontWeight: 'bold',          
+        marginTop: -38, 
+        marginLeft: 15
+    },
+    indicador:{
+        color: '#102d3b',
+        fontSize: 25,
+        fontWeight: 'bold'
     }
 })
 

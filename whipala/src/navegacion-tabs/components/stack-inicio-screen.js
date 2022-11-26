@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Inicio from './../../inicio/containers/lista-dolencias-container'
 import Dolencia from './../../inicio/containers/detalle-dolencia-container';
+import Plantas from './../../inicio/containers/detalle-planta-container';
 
 const InicioStack = createStackNavigator();
 
@@ -19,6 +20,14 @@ const InicioStackScreen = () => {
             <InicioStack.Screen
                 name = "Dolencia"
                 component = { Dolencia }
+                options = {{
+                headerShown: false
+            }} 
+            />
+
+            <InicioStack.Screen
+                name = "Plantas"
+                component = { Plantas }
                 options = {{
                 headerShown: false
             }} 

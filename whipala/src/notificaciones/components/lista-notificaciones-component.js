@@ -35,7 +35,7 @@ const ListaNotificacion = (props) => {
                     showsHorizontalScrollIndicator = {false}
                     ListEmptyComponent = {() => <Text>Componente de texto</Text>}
                     renderItem = {
-                        ({item}) => <Element item = {item}  onPress = {() => { navigateNotificacionDetalle(item); }}/>
+                        ({item}) => <Element item = {item}/>
                     }
                     ItemSeparatorComponent = {() => <View style = {styles.separador}/>}
                 />
@@ -48,13 +48,12 @@ const ListaNotificacion = (props) => {
 
 const Element = ( props ) => {
 
-    const { item, onPress } = props;
+    const { item } = props;
     
     
     return(
 
         <TouchableOpacity
-         onPress = {onPress}
         >
         
             <View style = {styles.fondo}>

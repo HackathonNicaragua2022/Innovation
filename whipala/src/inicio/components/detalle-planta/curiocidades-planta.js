@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 const Pantalla1 = (props) => {
 
     const { data, navegar, cambiarText, nombre } = props;
-
+ 
     return (
 
         <ScrollView style = {styles.fondoFlatList}>
@@ -25,7 +25,7 @@ const Pantalla1 = (props) => {
                 <Text
                     style = {styles.indicador}
                 >
-                    {data.title}
+                    Curiosidades
                 </Text>
 
             </View>
@@ -58,14 +58,20 @@ const Pantalla1 = (props) => {
             }> 
 
                 <View style = {styles.cont}>
-                    <Image
-                        source = {{uri: data.imagenInfor}}
-                        style = {styles.posterImagen}
-                    />
+
+                    <View style = {{
+                        width: '100%',
+                        alignItems: 'center',
+                    }}>
+                        <Image
+                            source = {{uri: data.imagenCuri}}
+                            style = {styles.posterImagen}
+                        />
+                    </View>
 
                     <View>
                         <Text style = {styles.descripcion}>
-                            {data.defi}
+                            {data.descripC}
                         </Text>
                     </View>
                 </View>
@@ -104,15 +110,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#f7f5fc',
         height: 35,
         width: 35,
-        borderRadius: 40,
+        borderRadius: 30,
         alignItems: 'center',
         justifyContent: 'center',
         marginTop: -59,
         marginLeft: 7
     },
     posterImagen:{
-        height: 300,
-        width: 300
+        height: 240,
+        width: 280,
+        resizeMode: "cover",
     },
     cont:{
         width: '100%',
