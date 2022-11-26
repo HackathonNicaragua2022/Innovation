@@ -1,127 +1,142 @@
-import React from 'react';
+/*import React from 'react';
 
 import {
     View,
     Text,
-    Image,
-    StyleSheet,
-    ScrollView,
     TouchableOpacity,
-    TextInput
-} from 'react-native'
+    ImageBackground,
+    StyleSheet
+} from 'react-native';
 
-const Login = () => {
-
+const App = (props) => {
+    const {navegar} = props;
     return(
-        <ScrollView>
-            <View style = {styles.container}>
-                <View style = {styles.header}>
-
+        <ImageBackground
+            source={require('./../../assets/fondod.png')}
+            style = {{flex: 1, alignItems: 'center'}}
+        >
+            <TouchableOpacity
+                onPress={navegar}
+            >
+                <View style = {styles.contenido}>
+                    <Text style = {styles.titulo}>
+                        Hola,
+                    </Text>
+                    <Text style = {styles.titulo1}>Bienvendo</Text>
                 </View>
 
-                <View style = {styles.cuerpo}>
-
-                    <View style = {styles.textImput}>
-
-                        <TextInput
-                            style = {styles.letterImput}
-                            placeholder = 'Correo electronico'
-                            autoCompleteType = 'email'
-                        />
-
-                    </View>
-
-                    <View style = {styles.textImput}>
-
-                        <TextInput
-                            style = {styles.letterImput}
-                            placeholder = 'Correo electronico'
-                            autoCompleteType = 'email'
-                        />
-
-                        </View>
+                <View style = {{height: 30, width: 50, backgroundColor: 'green'}}>
+                    <Text>Navegar</Text>
                 </View>
-
-                <View style = {styles.pie}>
-                    <TouchableOpacity>
-                        <View style ={styles.caja}>
-                            <Text style ={styles.info}>
-                                Ingresar
-                            </Text>
-                        </View>
-                    </TouchableOpacity>
-
-                    <View style = {styles.separador}/>
-
-                    <TouchableOpacity>
-                        <View style ={styles.caja}>
-                            <Text style ={styles.info}>
-                                Ingresar
-                            </Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        </ScrollView>
+            </TouchableOpacity>
+        </ImageBackground>
     )
 }
 
 const styles = StyleSheet.create({
-    container:{
-        backgroundColor: '#f7f5fc',
-        height: '100%',
-        width: '100%',
-        padding: 10,
-        justifyContent: 'center'
-    },
-    header:{
-        //backgroundColor: 'green',
-        width: '100%',
-        height: 250,
-    },
-    cuerpo:{
-        width: '100%',
-        height: 350,
-        //backgroundColor: 'purple',
-        alignItems: 'center'
-    },
-    pie: {
-        width: '100%',
-        height: 200,
-        alignItems: 'center'
-    },
-    caja:{
+    contenido:{
+        height: 100,
         width: 250,
-        height: 50,
-        backgroundColor: '#60be8c',
-        borderRadius: 45,
-        alignItems: 'center',
-        justifyContent: 'center'
+        marginTop: 40,
+        alignItems:'center'
     },
-    info:{
-        fontSize: 20,
+    titulo: {
+        fontSize: 25,
         fontWeight: 'bold',
         color: '#fff'
     },
-    separador: {
-        height: 20
-    },
-    textImput:{
-        backgroundColor: 'white',
-        width: '90%',
-        height: 50,
-        borderRadius: 50,
-        marginTop: 5,
-        paddingLeft: 8,
-        borderColor: '#60be8c',
-        borderWidth: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        resizeMode: 'cover',
-    },
-
-    letterImput:{
-        color: '#000'
+    titulo1: {
+        fontSize: 30,
+        fontWeight: 'bold',
+        color: '#fff'
     }
 })
+
+export default App;*/
+
+
+import React from 'react';
+import {View, Text, Touchable, TouchableOpacity} from 'react-native';
+import Background from './Background';
+import Btn from './Btn';
+import {darkGreen} from './Constants';
+import Field from './Field';
+
+const Login = (props) => {
+
+    const {navegar} = props;
+
+  return (
+    <Background>
+      <View style={{alignItems: 'center', width: 460}}>
+        <Text
+          style={{
+            color: 'white',
+            fontSize: 64,
+            fontWeight: 'bold',
+            marginVertical: 20,
+          }}>
+          Login
+        </Text>
+        <View
+          style={{
+            backgroundColor: 'white',
+            height: 700,
+            width: 460,
+            borderTopLeftRadius: 130,
+            paddingTop: 100,
+            alignItems: 'center',
+          }}>
+          <Text style={{fontSize: 40, color: darkGreen, fontWeight: 'bold'}}>
+            Welcome Back
+          </Text>
+          <Text
+            style={{
+              color: 'grey',
+              fontSize: 19,
+              fontWeight: 'bold',
+              marginBottom: 20,
+            }}>
+            Login to your account
+          </Text>
+          <Field
+            placeholder="Email / Username"
+            keyboardType={'email-address'}
+          />
+          <Field placeholder="Password" secureTextEntry={true} />
+          <View
+            style={{alignItems: 'flex-end', width: '78%', paddingRight: 16, marginBottom: 200}}>
+            <Text style={{color: darkGreen, fontWeight: 'bold', fontSize: 16}}>
+              Forgot Password ?
+            </Text>
+          </View>
+                <TouchableOpacity
+                    onPress={navegar}
+                    style={{
+                        backgroundColor: '#fff',
+                        borderRadius: 100,
+                        alignItems: 'center',
+                        width: 350,
+                        paddingVertical: 5,
+                        marginVertical: 10
+                }}>
+                    <View style = {{backgroundColor: 'green', height: 40, width: 250, borderRadius: 50, alignItems: 'center', justifyContent: 'center'}}>
+                        <Text style={{color: '#fff', fontSize: 25, fontWeight: 'bold', alignItems: 'center', justifyContent: 'center'}}>
+                            Login
+                        </Text>
+                    </View>
+                       
+                </TouchableOpacity>
+          <View style={{ display: 'flex', flexDirection :'row', justifyContent: "center" }}>
+            <Text style={{ fontSize: 16, fontWeight:"bold" }}>Don't have an account ? </Text>
+            <TouchableOpacity>
+            <Text style={{ color: darkGreen, fontWeight: 'bold', fontSize: 16 }}>Signup</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </View>
+    </Background>
+  );
+};
+
 export default Login;
